@@ -929,3 +929,31 @@ blockquote {
 .balloon strong {
     color: #333 !important;
 }
+/* Awards List */
+ul.awards-list {
+    margin: 0 0 2em 2em; /* Left margin for indentation, bottom margin for spacing */
+    padding: 0;
+    list-style-type: disc; /* Black bullet points */
+}
+
+ul.awards-list li {
+    margin-bottom: 1em; /* Space between list items */
+    padding: 0;
+    color: #333; /* Black text */
+    line-height: 1.5;
+}
+
+ul.awards-list li strong {
+    font-weight: 700;
+    color: #333; /* Black text for bolded titles */
+}
+
+ul.awards-list li a {
+    color: #2980b9; /* Blue for links */
+    text-decoration: none;
+}
+
+ul.awards-list li a:hover {
+    color: #3498db; /* Lighter blue on hover */
+    text-decoration: underline;
+}
