@@ -931,29 +931,29 @@ blockquote {
 }
 /* Awards List */
 ul.awards-list {
-    margin: 0 0 2em 2em; /* Left margin for indentation, bottom margin for spacing */
+    margin: 0 0 2em 2em;
     padding: 0;
-    list-style-type: disc; /* Black bullet points */
+    list-style-type: disc;
 }
 
 ul.awards-list li {
-    margin-bottom: 1em; /* Space between list items */
+    margin-bottom: 1em;
     padding: 0;
-    color: #333; /* Black text */
+    color: #333;
     line-height: 1.5;
 }
 
 ul.awards-list li strong {
     font-weight: 700;
-    color: #333; /* Black text for bolded titles */
+    color: #333;
 }
 
 ul.awards-list li a {
-    color: #2980b9; /* Blue for links */
+    color: #2980b9;
     text-decoration: none;
 }
 
 ul.awards-list li a:hover {
-    color: #3498db; /* Lighter blue on hover */
+    color: #3498db;
     text-decoration: underline;
 }
