@@ -93,8 +93,6 @@
 
 	header
 	{
-		background: #2c3e50; /* Darker blue for the header */
-		color: #fff;
 		margin-bottom: 2em;
 		line-height: 1.7em;
 	}
@@ -764,7 +762,8 @@
 	#header
 	{
 		position: relative;
-		background: #FFF;
+		background: #2c3e50; /* Darker blue for the header */
+		color: #fff;
 	}
 
 		#header .container
@@ -883,6 +882,7 @@
 	
 	#footer
 	{
+		
 		position: relative;
 		color: rgba(255,255,255,.4);
 	}
@@ -902,6 +902,11 @@
 	{
 		color: rgba(255,255,255,.7);
 	}
+/* Footer */
+#footer, #copyright {
+    background: #2c3e50; /* Match the header */
+    color: #fff;
+}
 	
 /*********************************************************************************/
 /* Copyright                                                                     */
@@ -921,11 +926,9 @@
 	{
 	}
 	
-	#copyright a
-	{
-		text-decoration: none;
-		color: rgba(255,255,255,.4) !important;
-	}
+	#copyright a {
+    color: #a0d1ff; /* Light blue for links in the footer */
+}
 
 /*********************************************************************************/
 /* Marketing                                                                     */
