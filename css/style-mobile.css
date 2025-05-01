@@ -1,0 +1,41 @@
+/* style-mobile.css */
+body {
+    font-size: 16px;
+}
+.container {
+    width: 100% !important;
+    padding: 0 15px;
+}
+#nav {
+    display: none; /* Hide desktop nav */
+}
+.image.featured {
+    width: 80% !important;
+    max-width: 300px;
+}
+h2 {
+    font-size: 32px;
+}
+h3 {
+    font-size: 24px;
+}
+/* Style the mobile menu toggle */
+.toggle {
+    display: block;
+    background: #333;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+}
+/* Style the mobile menu */
+#navPanel {
+    background: #fff;
+    color: #333;
+}
+#navPanel a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    border-bottom: 1px solid #ddd;
+}
