@@ -7,19 +7,24 @@ body {
     padding: 0 15px;
 }
 #nav {
-    display: none; /* Hide desktop nav */
+    display: none;
 }
 .image.featured {
     width: 80% !important;
     max-width: 300px;
 }
 h2 {
-    font-size: 32px;
+    font-size: 28px; /* Reduced from 32px */
+    margin-bottom: 1.5em; /* Add spacing below */
+    line-height: 1.3; /* Ensure line height prevents overlap */
 }
 h3 {
-    font-size: 24px;
+    font-size: 20px; /* Reduced from 24px */
+    margin-bottom: 1em;
+    margin-top: 2em; /* Add spacing above to separate from h2 */
+    line-height: 1.3;
 }
-/* Style the mobile menu toggle */
+/* Existing mobile menu styles */
 .toggle {
     display: block;
     background: #333;
@@ -27,7 +32,6 @@ h3 {
     padding: 10px;
     cursor: pointer;
 }
-/* Style the mobile menu */
 #navPanel {
     background: #fff;
     color: #333;
