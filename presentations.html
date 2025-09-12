@@ -18,6 +18,7 @@
             --primary-dark: #1d4ed8;
             --secondary-color: #06b6d4;
             --accent-color: #f59e0b;
+            --success-color: #10b981;
             --text-dark: #1f2937;
             --text-medium: #4b5563;
             --text-light: #6b7280;
@@ -27,6 +28,7 @@
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
             --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
             --gradient-primary: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
             --gradient-accent: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
         }
@@ -97,32 +99,50 @@
             backdrop-filter: blur(10px);
         }
         
-        /* Hero Section */
-        .hero {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
+        /* Hero Image Section */
+        .hero-image {
+            position: relative;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.8) 0%, rgba(6, 182, 212, 0.8) 100%),
+                        url('presentation2.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
         
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.3) 0%, rgba(6, 182, 212, 0.3) 100%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 800px;
             padding: 0 2rem;
         }
         
-        .hero h1 {
+        .hero-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
             font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         
-        .hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
+        .hero-content p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
         
         /* Main Container */
@@ -132,31 +152,83 @@
             padding: 0 2rem;
         }
         
-        /* Content Sections */
-        .content-section {
+        /* Dropdown Sections */
+        .dropdown-section {
             background: var(--bg-white);
             margin: 2rem 0;
-            padding: 2.5rem;
             border-radius: 12px;
             box-shadow: var(--shadow-md);
             border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
         
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
+        .dropdown-section:hover {
+            box-shadow: var(--shadow-lg);
         }
         
-        .section-header h2 {
+        .dropdown-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+        
+        .dropdown-header:hover {
+            background: var(--gradient-accent);
+        }
+        
+        .dropdown-header.active {
+            background: var(--gradient-accent);
+        }
+        
+        .dropdown-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .dropdown-title h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 0;
         }
         
-        .section-header .subtitle {
-            font-size: 1.1rem;
-            color: var(--text-medium);
+        .dropdown-icon {
+            font-size: 1.5rem;
+        }
+        
+        .dropdown-arrow {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .dropdown-header.active .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+        
+        .dropdown-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-top: 0.25rem;
+        }
+        
+        .dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            background: var(--bg-white);
+        }
+        
+        .dropdown-content.active {
+            max-height: 5000px;
+            padding: 2rem;
         }
         
         /* Subsection Headers */
@@ -186,8 +258,8 @@
         .presentation-item {
             background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
             margin-bottom: 1.5rem;
-            padding: 1.8rem;
-            border-radius: 10px;
+            padding: 2rem;
+            border-radius: 12px;
             border-left: 4px solid var(--primary-color);
             box-shadow: var(--shadow-sm);
             transition: all 0.3s ease;
@@ -207,16 +279,16 @@
         }
         
         .presentation-item:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
             border-left-color: var(--secondary-color);
         }
         
         .presentation-title {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: var(--text-dark);
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
             line-height: 1.4;
         }
         
@@ -224,7 +296,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
         
         .meta-item {
@@ -233,12 +305,14 @@
             font-size: 0.9rem;
             color: var(--text-medium);
             background: rgba(37, 99, 235, 0.1);
-            padding: 0.25rem 0.75rem;
-            border-radius: 15px;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 500;
         }
         
         .meta-item::before {
             margin-right: 0.5rem;
+            font-size: 1rem;
         }
         
         .meta-location::before { content: '📍'; }
@@ -247,6 +321,7 @@
         .presentation-description {
             color: var(--text-medium);
             line-height: 1.6;
+            margin-bottom: 1rem;
         }
         
         .presentation-link {
@@ -255,59 +330,49 @@
             color: var(--primary-color);
             text-decoration: none;
             font-weight: 500;
-            margin-top: 0.5rem;
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             background: rgba(37, 99, 235, 0.1);
-            border-radius: 6px;
+            border-radius: 8px;
             transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
         
         .presentation-link:hover {
             background: var(--primary-color);
             color: white;
-            transform: translateX(2px);
+            transform: translateX(3px);
+            border-color: var(--primary-color);
         }
         
         .presentation-link::after {
             content: '→';
             margin-left: 0.5rem;
+            transition: transform 0.3s ease;
         }
         
-        /* Stats Section */
-        .stats-section {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 3rem 2rem;
+        .presentation-link:hover::after {
+            transform: translateX(3px);
+        }
+        
+        /* Bottom Image Section */
+        .bottom-image-section {
             margin: 3rem 0;
-            border-radius: 12px;
             text-align: center;
         }
         
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+        .bottom-image {
+            width: 100%;
             max-width: 800px;
-            margin: 0 auto;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
         }
         
-        .stat-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-label {
-            font-size: 1rem;
-            opacity: 0.9;
+        .bottom-image:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-xl);
         }
         
         /* Footer */
@@ -337,24 +402,32 @@
                 justify-content: center;
             }
             
-            .hero h1 {
-                font-size: 2rem;
+            .hero-content h1 {
+                font-size: 2.5rem;
             }
             
-            .hero p {
-                font-size: 1rem;
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-image {
+                height: 250px;
             }
             
             .main-container {
                 padding: 0 1rem;
             }
             
-            .content-section {
+            .dropdown-content.active {
                 padding: 1.5rem;
             }
             
-            .section-header h2 {
-                font-size: 2rem;
+            .dropdown-title h2 {
+                font-size: 1.5rem;
+            }
+            
+            .presentation-item {
+                padding: 1.5rem;
             }
             
             .presentation-meta {
@@ -362,15 +435,41 @@
                 gap: 0.5rem;
             }
             
-            .stats-grid {
-                grid-template-columns: 1fr 1fr;
+            .bottom-image {
+                height: 250px;
             }
         }
         
         @media (max-width: 480px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
+            .hero-content h1 {
+                font-size: 2rem;
             }
+            
+            .dropdown-header {
+                padding: 1rem;
+            }
+            
+            .dropdown-title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            
+            .presentation-item {
+                padding: 1rem;
+            }
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
     
@@ -406,245 +505,272 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
+    <!-- Hero Image Section -->
+    <section class="hero-image">
+        <div class="hero-content">
             <h1>Research Presentations</h1>
-            <p>Sharing insights of data science and statistics</p>
+            <p>Sharing insights in data science, statistics, and marine ecosystem research</p>
         </div>
     </section>
 
-
-
     <!-- Main Content -->
     <main class="main-container">
-        <!-- Talks Section -->
-        <section class="content-section">
-            <div class="section-header">
-                <h2>Conference Talks</h2>
-                <p class="subtitle">Invited and contributed presentations at academic conferences</p>
+        <!-- Conference Talks Section -->
+        <section class="dropdown-section fade-in">
+            <div class="dropdown-header" onclick="toggleDropdown(this)">
+                <div>
+                    <div class="dropdown-title">
+                        <span class="dropdown-icon">🎤</span>
+                        <h2>Conference Talks</h2>
+                    </div>
+                    <div class="dropdown-subtitle">Invited and contributed presentations at academic conferences</div>
+                </div>
+                <span class="dropdown-arrow">▼</span>
             </div>
+            <div class="dropdown-content">
+                <div class="dropdown-stats">
+                    <span class="stats-number">10</span>
+                    <span class="stats-label">Total Presentations</span>
+                </div>
 
-            <h3 class="subsection-header">Invited Presentations</h3>
-            <ol class="presentation-list">
-                <li class="presentation-item">
-                    <div class="presentation-title">VA-WHPC Seminar: Real Stories about Using HPC in Research</div>
-                    <div class="presentation-meta">
-                        <span class="meta-item meta-location">Virtual</span>
-                        <span class="meta-item meta-date">February 2025</span>
-                    </div>
-                    <div class="presentation-description">
-                        Presented on my experiences, tips, and best practices for utilizing High-Performance Computing (HPC) in research.
-                    </div>
-                    <a href="https://va-whpc.org/va-whpc-real-stories-about-using-hpc-in-research/" class="presentation-link">View Details</a>
-                </li>
+                <h3 class="subsection-header">Invited Presentations</h3>
+                <ol class="presentation-list">
+                    <li class="presentation-item">
+                        <div class="presentation-title">VA-WHPC Seminar: Real Stories about Using HPC in Research</div>
+                        <div class="presentation-meta">
+                            <span class="meta-item meta-location">Virtual</span>
+                            <span class="meta-item meta-date">February 2025</span>
+                        </div>
+                        <div class="presentation-description">
+                            Presented on my experiences, tips, and best practices for utilizing High-Performance Computing (HPC) in research.
+                        </div>
+                        <a href="https://va-whpc.org/va-whpc-real-stories-about-using-hpc-in-research/" class="presentation-link">View Details</a>
+                    </li>
 
-                <li class="presentation-item">
-                    <div class="presentation-title">Virginia Sea Grant Symposium - TED-style Talk</div>
-                    <div class="presentation-meta">
-                        <span class="meta-item meta-location">Virginia Beach, VA</span>
-                        <span class="meta-item meta-date">October 2024</span>
-                    </div>
-                    <div class="presentation-description">
-                        Delivered "Fish Movement Imputations: How Data Science and Ecology Unite to Preserve Marine Ecosystems", showcasing interdisciplinary research in spatiotemporal modeling, data science, and fisheries science.
-                    </div>
-                    <a href="https://symposium.vaseagrant.org/2024-visions-ted-like-talks/" class="presentation-link">Watch Talk</a>
-                </li>
+                    <li class="presentation-item">
+                        <div class="presentation-title">Virginia Sea Grant Symposium - TED-style Talk</div>
+                        <div class="presentation-meta">
+                            <span class="meta-item meta-location">Virginia Beach, VA</span>
+                            <span class="meta-item meta-date">October 2024</span>
+                        </div>
+                        <div class="presentation-description">
+                            Delivered "Fish Movement Imputations: How Data Science and Ecology Unite to Preserve Marine Ecosystems", showcasing interdisciplinary research in spatiotemporal modeling, data science, and fisheries science.
+                        </div>
+                        <a href="https://symposium.vaseagrant.org/2024-visions-ted-like-talks/" class="presentation-link">Watch Talk</a>
+                    </li>
 
-                <li class="presentation-item">
-                    <div class="presentation-title">Consulting Using Advanced Analytics - VCU Capstone Course</div>
-                    <div class="presentation-meta">
-                        <span class="meta-item meta-location">Richmond, VA</span>
-                        <span class="meta-item meta-date">September 2022</span>
-                    </div>
-                    <div class="presentation-description">
-                        Presented to undergraduate research students on applying advanced statistical and analytical techniques to real-world scenarios.
-                    </div>
-                </li>
-            </ol>
+                    <li class="presentation-item">
+                        <div class="presentation-title">Consulting Using Advanced Analytics - VCU Capstone Course</div>
+                        <div class="presentation-meta">
+                            <span class="meta-item meta-location">Richmond, VA</span>
+                            <span class="meta-item meta-date">September 2022</span>
+                        </div>
+                        <div class="presentation-description">
+                            Presented to undergraduate research students on applying advanced statistical and analytical techniques to real-world scenarios.
+                        </div>
+                    </li>
+                </ol>
 
-            <h3 class="subsection-header">Contributed Presentations</h3>
-            <ol class="presentation-list">
-                <li class="presentation-item">
-                    <div class="presentation-title">The 154th Annual Meeting of the American Fisheries Society</div>
-                    <div class="presentation-meta">
-                        <span class="meta-item meta-location">Honolulu, HI</span>
-                        <span class="meta-item meta-date">September 2024</span>
-                    </div>
-                    <div class="presentation-description">
-                        Delivered "A Methodology for Spatiotemporal Modeling of Acoustically Tagged Fish Data."
-                    </div>
-                </li>
+                <h3 class="subsection-header">Contributed Presentations</h3>
+                <ol class="presentation-list">
+                    <li class="presentation-item">
+                        <div class="presentation-title">The 154th Annual Meeting of the American Fisheries Society</div>
+                        <div class="presentation-meta">
+                            <span class="meta-item meta-location">Honolulu, HI</span>
+                            <span class="meta-item meta-date">September 2024</span>
+                        </div>
+                        <div class="presentation-description">
+                            Delivered "A Methodology for Spatiotemporal Modeling of Acoustically Tagged Fish Data."
+                        </div>
+                    </li>
 
-                <li class="presentation-item">
-                    <div class="presentation-title">The Symposium on Data Science and Statistics</div>
-                    <div class="presentation-meta">
-                        <span class="meta-item meta-location">Richmond, VA</span>
-                        <span class="meta-item meta-date">June 2024</span>
-                    </div>
-                    <div class="presentation-description">
-                        Delivered "A Methodology for Spatiotemporal Modeling of Acoustically Tagged Fish Data."
-                    </div>
-                </li>
+                    <li class="presentation-item">
+                        <div class="presentation-title">The Symposium on Data Science and Statistics</div>
+                        <div class="presentation-meta">
+                            <span class="meta-item meta-location">Richmond, VA</span>
+                            <span class="meta-item meta-date">June 2024</span>
+                        </div>
+                        <div class="presentation-description">
+                            Delivered "A Methodology for Spatiotemporal Modeling of Acoustically Tagged Fish Data."
+                        </div>
+                    </li>
 
-                <li class="presentation-item">
-                    <div class="presentation-title">Seminar at Virginia Commonwealth University</div>
-                    <div class="presentation-meta">
-                        <span class="meta-item meta-location">Richmond, VA</span>
-                        <span class="meta-item meta-date">July 2023</span>
-                    </div>
-                    <div class="presentation-description">
-                        Delivered "A stochastic approach to animal location imputation with application to Salmon Sharks in the Pacific Ocean."
-                    </div>
-                </li>
+                    <li class="presentation-item">
+                        <div class="presentation-title">Seminar at Virginia Commonwealth University</div>
+                        <div class="presentation-meta">
+                            <span class="meta-item meta-location">Richmond, VA</span>
+                            <span class="meta-item meta-date">July 2023</span>
+                        </div>
+                        <div class="presentation-description">
+                            Delivered "A stochastic approach to animal location imputation with application to Salmon Sharks in the Pacific Ocean."
+                        </div>
+                    </li>
 
-                <li class="presentation-item">
-                    <div class="presentation-title">Virginia Women in High-Performance Computing - Student Lightning Talks</div>
-                    <div class="presentation-meta">
-                        <span class="meta-item meta-location">Virtual</span>
-                        <span class="meta-item meta-date">April 2023</span>
-                    </div>
-                    <div class="presentation-description">
-                        Delivered "Using HPC in Modeling Salmon shark's location in the Pacific Ocean using stochastic process approach."
-                    </div>
-                    <a href="https://va-whpc.org/event/va-whpc-student-lightning-talks/" class="presentation-link">Event Details</a>
-                </li>
+                    <li class="presentation-item">
+                        <div class="presentation-title">Virginia Women in High-Performance Computing - Student Lightning Talks</div>
+                        <div class="presentation-meta">
+                            <span class="meta-item meta-location">Virtual</span>
+                            <span class="meta-item meta-date">April 2023</span>
+                        </div>
+                        <div class="presentation-description">
+                            Delivered "Using HPC in Modeling Salmon shark's location in the Pacific Ocean using stochastic process approach."
+                        </div>
+                        <a href="https://va-whpc.org/event/va-whpc-student-lightning-talks/" class="presentation-link">Event Details</a>
+                    </li>
 
-                <li class="presentation-item">
-                    <div class="presentation-title">SOR Data Science Team - NFL Big Data Bowl Competition</div>
-                    <div class="presentation-meta">
-                        <span class="meta-item meta-location">Richmond, VA</span>
-                        <span class="meta-item meta-date">February 2023</span>
-                    </div>
-                    <div class="presentation-description">
-                        Delivered a group presentation for the NFL Big Data Bowl Competition.
-                    </div>
-                </li>
+                    <li class="presentation-item">
+                        <div class="presentation-title">SOR Data Science Team - NFL Big Data Bowl Competition</div>
+                        <div class="presentation-meta">
+                            <span class="meta-item meta-location">Richmond, VA</span>
+                            <span class="meta-item meta-date">February 2023</span>
+                        </div>
+                        <div class="presentation-description">
+                            Delivered a group presentation for the NFL Big Data Bowl Competition.
+                        </div>
+                    </li>
 
-                <li class="presentation-item">
-                    <div class="presentation-title">Virginia Commonwealth University - 3 Minute Talk</div>
-                    <div class="presentation-meta">
-                        <span class="meta-item meta-location">Richmond, VA</span>
-                        <span class="meta-item meta-date">February 2023</span>
-                    </div>
-                    <div class="presentation-description">
-                        Delivered "How do we find a lost shark? We model Salmon shark's location in the Pacific Ocean."
-                    </div>
-                </li>
+                    <li class="presentation-item">
+                        <div class="presentation-title">Virginia Commonwealth University - 3 Minute Talk</div>
+                        <div class="presentation-meta">
+                            <span class="meta-item meta-location">Richmond, VA</span>
+                            <span class="meta-item meta-date">February 2023</span>
+                        </div>
+                        <div class="presentation-description">
+                            Delivered "How do we find a lost shark? We model Salmon shark's location in the Pacific Ocean."
+                        </div>
+                    </li>
 
-                <li class="presentation-item">
-                    <div class="presentation-title">AAC&U 2022 Conference on Transforming STEM Higher Education</div>
-                    <div class="presentation-meta">
-                        <span class="meta-item meta-location">Richmond, VA</span>
-                        <span class="meta-item meta-date">February 2023</span>
-                    </div>
-                    <div class="presentation-description">
-                        Group presentation: "Inclusive and Equitable Teaching Influences Student Belonging and Engagement."
-                    </div>
-                </li>
-            </ol>
+                    <li class="presentation-item">
+                        <div class="presentation-title">AAC&U 2022 Conference on Transforming STEM Higher Education</div>
+                        <div class="presentation-meta">
+                            <span class="meta-item meta-location">Richmond, VA</span>
+                            <span class="meta-item meta-date">February 2023</span>
+                        </div>
+                        <div class="presentation-description">
+                            Group presentation: "Inclusive and Equitable Teaching Influences Student Belonging and Engagement."
+                        </div>
+                    </li>
+                </ol>
+            </div>
         </section>
 
         <!-- Poster Presentations Section -->
-        <section class="content-section">
-            <div class="section-header">
-                <h2>Poster Presentations</h2>
-                <p class="subtitle">Research showcased through visual presentations at academic venues</p>
+        <section class="dropdown-section fade-in">
+            <div class="dropdown-header" onclick="toggleDropdown(this)">
+                <div>
+                    <div class="dropdown-title">
+                        <span class="dropdown-icon">📊</span>
+                        <h2>Poster Presentations</h2>
+                    </div>
+                    <div class="dropdown-subtitle">Research showcased through visual presentations at academic venues</div>
+                </div>
+                <span class="dropdown-arrow">▼</span>
             </div>
+            <div class="dropdown-content">
+                <div class="dropdown-stats">
+                    <span class="stats-number">8</span>
+                    <span class="stats-label">Poster Presentations</span>
+                </div>
 
-            <ol class="presentation-list">
-                <li class="presentation-item">
-                    <div class="presentation-title">The Southern Regional Council on Statistics 60th Research Conference</div>
-                    <div class="presentation-meta">
-                        <span class="meta-item meta-location">Jekyll Island, GA</span>
-                        <span class="meta-item meta-date">June 2025</span>
-                    </div>
-                    <div class="presentation-description">
-                        "A New Methodology for Spatiotemporal Modeling of Acoustically Tagged Fish Data"
-                    </div>
-                    <a href="https://irp.cdn-website.com/98cf8534/files/uploaded/2025_SRCOS_SRC_Program.pdf" class="presentation-link">Conference Program</a>
-                </li>
+                <ol class="presentation-list">
+                    <li class="presentation-item">
+                        <div class="presentation-title">The Southern Regional Council on Statistics 60th Research Conference</div>
+                        <div class="presentation-meta">
+                            <span class="meta-item meta-location">Jekyll Island, GA</span>
+                            <span class="meta-item meta-date">June 2025</span>
+                        </div>
+                        <div class="presentation-description">
+                            "A New Methodology for Spatiotemporal Modeling of Acoustically Tagged Fish Data"
+                        </div>
+                        <a href="https://irp.cdn-website.com/98cf8534/files/uploaded/2025_SRCOS_SRC_Program.pdf" class="presentation-link">Conference Program</a>
+                    </li>
 
-                <li class="presentation-item">
-                    <div class="presentation-title">GMU StatConnect 2025</div>
-                    <div class="presentation-meta">
-                        <span class="meta-item meta-location">Fairfax, VA</span>
-                        <span class="meta-item meta-date">March 2025</span>
-                    </div>
-                    <div class="presentation-description">
-                        "Spatiotemporal Bayesian modeling of fish movement"
-                    </div>
-                    <a href="https://statistics.gmu.edu/poster-presentations" class="presentation-link">Event Page</a>
-                </li>
+                    <li class="presentation-item">
+                        <div class="presentation-title">GMU StatConnect 2025</div>
+                        <div class="presentation-meta">
+                            <span class="meta-item meta-location">Fairfax, VA</span>
+                            <span class="meta-item meta-date">March 2025</span>
+                        </div>
+                        <div class="presentation-description">
+                            "Spatiotemporal Bayesian modeling of fish movement"
+                        </div>
+                        <a href="https://statistics.gmu.edu/poster-presentations" class="presentation-link">Event Page</a>
+                    </li>
 
-                <li class="presentation-item">
-                    <div class="presentation-title">SIAM Washington-Baltimore Section Fall Meeting</div>
-                    <div class="presentation-meta">
-                        <span class="meta-item meta-location">Arlington, VA</span>
-                        <span class="meta-item meta-date">December 2024</span>
-                    </div>
-                    <div class="presentation-description">
-                        "A New Methodology for Spatiotemporal Modeling of Fish Trajectory Imputation"
-                    </div>
-                </li>
+                    <li class="presentation-item">
+                        <div class="presentation-title">SIAM Washington-Baltimore Section Fall Meeting</div>
+                        <div class="presentation-meta">
+                            <span class="meta-item meta-location">Arlington, VA</span>
+                            <span class="meta-item meta-date">December 2024</span>
+                        </div>
+                        <div class="presentation-description">
+                            "A New Methodology for Spatiotemporal Modeling of Fish Trajectory Imputation"
+                        </div>
+                    </li>
 
-                <li class="presentation-item">
-                    <div class="presentation-title">NSF Workshop on Data-driven Modeling and Prediction of Rare and Extreme Events</div>
-                    <div class="presentation-meta">
-                        <span class="meta-item meta-location">Chicago, IL</span>
-                        <span class="meta-item meta-date">November 2024</span>
-                    </div>
-                    <div class="presentation-description">
-                        "A New Methodology for Spatiotemporal Modeling of Fish Trajectory Imputation"
-                    </div>
-                    <a href="https://datascience.uchicago.edu/events/nsf-workshop-on-data-driven-modeling-and-prediction-of-rare-and-extreme-events/" class="presentation-link">Workshop Details</a>
-                </li>
+                    <li class="presentation-item">
+                        <div class="presentation-title">NSF Workshop on Data-driven Modeling and Prediction of Rare and Extreme Events</div>
+                        <div class="presentation-meta">
+                            <span class="meta-item meta-location">Chicago, IL</span>
+                            <span class="meta-item meta-date">November 2024</span>
+                        </div>
+                        <div class="presentation-description">
+                            "A New Methodology for Spatiotemporal Modeling of Fish Trajectory Imputation"
+                        </div>
+                        <a href="https://datascience.uchicago.edu/events/nsf-workshop-on-data-driven-modeling-and-prediction-of-rare-and-extreme-events/" class="presentation-link">Workshop Details</a>
+                    </li>
 
-                <li class="presentation-item">
-                    <div class="presentation-title">American Statistical Association - Virginia Chapter Annual Meeting</div>
-                    <div class="presentation-meta">
-                        <span class="meta-item meta-location">Richmond, VA</span>
-                        <span class="meta-item meta-date">October 2023</span>
-                    </div>
-                    <div class="presentation-description">
-                        "Modeling Salmon shark's location in the ocean using stochastic process with measurement error"
-                    </div>
-                    <a href="https://mahshidahmadian.github.io/images/Poster_first_award_presentation.png" class="presentation-link">Award Poster</a>
-                </li>
+                    <li class="presentation-item">
+                        <div class="presentation-title">American Statistical Association - Virginia Chapter Annual Meeting</div>
+                        <div class="presentation-meta">
+                            <span class="meta-item meta-location">Richmond, VA</span>
+                            <span class="meta-item meta-date">October 2023</span>
+                        </div>
+                        <div class="presentation-description">
+                            "Modeling Salmon shark's location in the ocean using stochastic process with measurement error"
+                        </div>
+                        <a href="https://mahshidahmadian.github.io/images/Poster_first_award_presentation.png" class="presentation-link">Award Poster</a>
+                    </li>
 
-                <li class="presentation-item">
-                    <div class="presentation-title">ENVR 2022 Workshop: Environmental and Ecological Statistical Research</div>
-                    <div class="presentation-meta">
-                        <span class="meta-item meta-location">Provo, SLC, UT</span>
-                        <span class="meta-item meta-date">October 2022</span>
-                    </div>
-                    <div class="presentation-description">
-                        "Modeling Salmon shark's location in the ocean using stochastic process with measurement error"
-                    </div>
-                </li>
+                    <li class="presentation-item">
+                        <div class="presentation-title">ENVR 2022 Workshop: Environmental and Ecological Statistical Research</div>
+                        <div class="presentation-meta">
+                            <span class="meta-item meta-location">Provo, SLC, UT</span>
+                            <span class="meta-item meta-date">October 2022</span>
+                        </div>
+                        <div class="presentation-description">
+                            "Modeling Salmon shark's location in the ocean using stochastic process with measurement error"
+                        </div>
+                    </li>
 
-                <li class="presentation-item">
-                    <div class="presentation-title">Southern Regional Council on Statistics 57th Research Conference</div>
-                    <div class="presentation-meta">
-                        <span class="meta-item meta-location">Jekyll Island, GA</span>
-                        <span class="meta-item meta-date">October 2022</span>
-                    </div>
-                    <div class="presentation-description">
-                        "Modeling Salmon shark's location in the ocean using stochastic process with measurement error"
-                    </div>
-                </li>
+                    <li class="presentation-item">
+                        <div class="presentation-title">Southern Regional Council on Statistics 57th Research Conference</div>
+                        <div class="presentation-meta">
+                            <span class="meta-item meta-location">Jekyll Island, GA</span>
+                            <span class="meta-item meta-date">October 2022</span>
+                        </div>
+                        <div class="presentation-description">
+                            "Modeling Salmon shark's location in the ocean using stochastic process with measurement error"
+                        </div>
+                    </li>
 
-                <li class="presentation-item">
-                    <div class="presentation-title">Southern Regional Council on Statistics 56th Research Conference</div>
-                    <div class="presentation-meta">
-                        <span class="meta-item meta-location">Jekyll Island, GA</span>
-                        <span class="meta-item meta-date">October 2021</span>
-                    </div>
-                    <div class="presentation-description">
-                        "Measurement Error in Ordinal Longitudinal Data"
-                    </div>
-                </li>
-            </ol>
+                    <li class="presentation-item">
+                        <div class="presentation-title">Southern Regional Council on Statistics 56th Research Conference</div>
+                        <div class="presentation-meta">
+                            <span class="meta-item meta-location">Jekyll Island, GA</span>
+                            <span class="meta-item meta-date">October 2021</span>
+                        </div>
+                        <div class="presentation-description">
+                            "Measurement Error in Ordinal Longitudinal Data"
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Bottom Image Section -->
+        <section class="bottom-image-section fade-in">
+            <img src="presentations.jpg" alt="Research Presentations Overview" class="bottom-image">
         </section>
     </main>
 
@@ -656,19 +782,25 @@
     </footer>
 
     <script>
-        // Toggle collapsible sections
-        function toggleSection(sectionId) {
-            const content = document.getElementById(sectionId);
-            const toggle = content.previousElementSibling;
-            const icon = toggle.querySelector('.toggle-icon');
+        // Toggle dropdown functionality
+        function toggleDropdown(header) {
+            const content = header.nextElementSibling;
+            const arrow = header.querySelector('.dropdown-arrow');
             
-            if (content.classList.contains('active')) {
-                content.classList.remove('active');
-                toggle.classList.remove('active');
-            } else {
-                content.classList.add('active');
-                toggle.classList.add('active');
-            }
+            // Close other dropdowns
+            document.querySelectorAll('.dropdown-header').forEach(otherHeader => {
+                if (otherHeader !== header && otherHeader.classList.contains('active')) {
+                    const otherContent = otherHeader.nextElementSibling;
+                    const otherArrow = otherHeader.querySelector('.dropdown-arrow');
+                    
+                    otherHeader.classList.remove('active');
+                    otherContent.classList.remove('active');
+                }
+            });
+            
+            // Toggle current dropdown
+            header.classList.toggle('active');
+            content.classList.toggle('active');
         }
 
         // Add smooth scrolling for anchor links
@@ -678,13 +810,14 @@
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({
-                        behavior: 'smooth'
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
             });
         });
 
-        // Add intersection observer for animations
+        // Intersection observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -693,20 +826,77 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
 
-        // Initialize when DOM is loaded
+        // Initialize animations when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
-            // Observe all presentation items for scroll animations
-            document.querySelectorAll('.presentation-item').forEach(item => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(20px)';
-                item.style.transition = 'all 0.6s ease';
-                observer.observe(item);
+            // Observe all fade-in elements
+            document.querySelectorAll('.fade-in').forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Add staggered animation to presentation items
+            document.querySelectorAll('.presentation-item').forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.1}s`;
+            });
+            
+            // Auto-open first section on load
+            const firstDropdownHeader = document.querySelector('.dropdown-header');
+            if (firstDropdownHeader) {
+                setTimeout(() => {
+                    toggleDropdown(firstDropdownHeader);
+                }, 500);
+            }
+        });
+
+        // Add keyboard navigation for dropdowns
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                const focusedElement = document.activeElement;
+                if (focusedElement.classList.contains('dropdown-header')) {
+                    e.preventDefault();
+                    toggleDropdown(focusedElement);
+                }
+            }
+        });
+
+        // Make dropdown headers focusable for accessibility
+        document.querySelectorAll('.dropdown-header').forEach(header => {
+            header.setAttribute('tabindex', '0');
+            header.setAttribute('role', 'button');
+            header.setAttribute('aria-expanded', 'false');
+            
+            // Update aria-expanded when dropdown state changes
+            const observer = new MutationObserver(() => {
+                const isActive = header.classList.contains('active');
+                header.setAttribute('aria-expanded', isActive.toString());
+            });
+            
+            observer.observe(header, { attributes: true, attributeFilter: ['class'] });
+        });
+
+        // Add loading animation for images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+            
+            // Set initial opacity for smooth loading
+            img.style.opacity = '0';
+            img.style.transition = 'opacity 0.3s ease';
+        });
+
+        // Enhanced hover effects for presentation items
+        document.querySelectorAll('.presentation-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.01)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
             });
         });
     </script>
