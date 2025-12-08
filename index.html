@@ -3,452 +3,716 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahshid Ahmadian – Data Science & Statistics Researcher</title>
+    <title>Mahshid Ahmadian - Data Science & Statistics Researcher</title>
     <meta name="google-site-verification" content="Y2QwmOg2WKRNMv0FAMvVJX5LLd9xJLIbQIyCCBX7R_M" />
-    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="description" content="Website of Mahshid Ahmadian, Ph.D. in data science and statistics, showcasing projects, and research.">
-    <meta name="keywords" content="Mahshid Ahmadian, data scientist, statistics, Bayesian modeling, geospatial analysis, Virginia Sea Grant, VCU">
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta name="keywords" content="Mahshid Ahmadian, mahshid ahmadian, Virginia Commonwealth University, data scientist, VCU, statistics, data science, Python, machine learning, Virginia Sea Grant, geospatial analysis, Bayesian modeling">
     
-    <!-- Icons -->
-    <script src="https://kit.fontawesome.com/1b2f0f6945.js" crossorigin="anonymous"></script>
-
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --accent: #0ea5e9;
-            --gray-50: #f8fafc;
-            --gray-100: #f1f5f9;
-            --gray-200: #e2e8f0;
-            --gray-300: #cbd5e1;
-            --gray-600: #475569;
-            --gray-700: #334155;
-            --gray-800: #1e293b;
-            --gray-900: #0f172a;
-            --white: #ffffff;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
-            --radius: 16px;
-            --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+    --primary-blue: #2563eb;
+    --light-blue: #e5efff;
+    --soft-blue: #f3f4f6;
+    --dark-blue: #1e3a8a;
+    --accent-blue: #0ea5e9;
+    --text-dark: #111827;
+    --text-medium: #4b5563;
+    --text-light: #6b7280;
+    --white: #ffffff;
+    --border-color: #e5e7eb;
+    --page-bg: #f3f4f6;
+    --shadow-sm: 0 1px 2px 0 rgb(15 23 42 / 0.05);
+    --shadow-md: 0 3px 6px -1px rgb(15 23 42 / 0.12);
+}
 
-        [data-theme="dark"] {
-            --primary: #60a5fa;
-            --primary-dark: #3b82f6;
-            --gray-50: #0f172a;
-            --gray-100: #1e293b;
-            --gray-200: #334155;
-            --gray-300: #475569;
-            --gray-600: #e2e8f0;
-            --gray-700: #f1f5f9;
-            --gray-800: #f8fafc;
-            --gray-900: #ffffff;
-            --white: #ffffff;
-        }
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            color: var(--gray-700);
-            background: var(--gray-50);
-            transition: var(--gray-900);
-            transition: var(--transition);
-        }
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: var(--page-bg);
+    min-height: 100vh;
+}
 
-        /* Smooth scroll */
-        html { scroll-behavior: smooth; }
+/* Header */
+.header {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
+    color: white;
+    padding: 0.6rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-md);
+}
 
-        /* Header */
-        header {
-            background: rgba(255,255,255,0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--gray-200);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: var(--transition);
-        }
-        [data-theme="dark"] header { background: rgba(15,23,42,0.9); border-color: var(--gray-200); }
+.header-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
 
-        .header-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.logo h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
 
-        .logo h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.85rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+.logo a {
+    color: white;
+    text-decoration: none;
+}
 
-        .logo a { text-decoration: none; }
+.nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.25rem;
+    font-size: 0.95rem;
+}
 
-        nav ul {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    transition: background 0.2s ease, opacity 0.2s ease;
+}
 
-        nav a {
-            color: var(--gray-gray-600);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            transition: var(--transition);
-        }
+.nav a:hover,
+.nav .active a {
+    background: rgba(255, 255, 255, 0.18);
+}
 
-        nav a:hover, nav a.active {
-            color: var(--primary);
-            background: rgba(37,99,235,0.1);
-        }
+/* Main Container */
+.main-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem 2rem;
+}
 
-        /* Dark mode toggle */
-        .theme-toggle {
-            background: none;
-            border: none;
-            font-size: 1.4rem;
-            cursor: pointer;
-            color: var(--gray-600);
-            transition: var(--transition);
-        }
+/* Hero Section */
+.hero-section {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 1.75rem 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    display: grid;
+    grid-template-columns: minmax(0, 240px) minmax(0, 1.8fr);
+    gap: 2rem;
+    align-items: center;
+}
 
-        /* Main content */
-        main {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 120px 2rem 4rem;
-        }
+.profile-image {
+    width: 100%;
+    height: 220px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 2px solid var(--light-blue);
+}
 
-        /* Hero */
-        .hero {
-            display: grid;
-            grid-template-columns: 320px 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 5rem;
-            animation: fadeInUp 1s ease;
-        }
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    color: var(--primary-blue);
+    margin-bottom: 0.3rem;
+}
 
-        .profile-img {
-            width: 100%;
-            max-width: 320px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-lg);
-            border: 6px solid var(--white);
-            transition: var(--transition);
-        }
+.hero-content .greeting {
+    font-size: 1rem;
+    color: var(--text-medium);
+    margin-bottom: 0.75rem;
+}
 
-        .profile-img:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
+.hero-content p {
+    color: var(--text-medium);
+    margin-bottom: 0.9rem;
+    font-size: 0.97rem;
+}
 
-        .hero-text h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.2rem;
-            line-height: 1.2;
-            color: var(--gray-900);
-            margin: 1rem 0 1.5rem;
-        }
+.hero-content a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
 
-        .hero-text .tagline {
-            font-size: 1.4rem;
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
+.hero-content a:hover {
+    text-decoration: underline;
+}
 
-        .hero-text p {
-            font-size: 1.15rem;
-            color: var(--gray-600);
-            margin-bottom: 2rem;
-        }
+/* Buttons */
+.cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.4rem;
+}
 
-        .btn-group {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
+.btn {
+    padding: 0.55rem 1.2rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
 
-        .btn {
-            padding: 0.9rem 1.8rem;
-            border-radius: 12px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: var(--transition);
-        }
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            box-shadow: var(--shadow-md);
-        }
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
 
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
+.btn-secondary {
+    background: #eff6ff;
+    color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
+}
 
-        .btn-outline {
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            background: transparent;
-        }
+.btn-secondary:hover {
+    background: var(--primary-blue);
+    color: white;
+}
 
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
-        }
+/* Generic Content Sections */
+.content-section {
+    background: var(--white);
+    margin: 1.3rem 0;
+    padding: 1.6rem 1.4rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
 
-        /* Section styling */
-        .section {
-            background: var(--white);
-            padding: 3.5rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-lg);
-            margin-bottom: 3rem;
-            border: 1px solid var(--gray-200);
-            animation: fadeInUp 0.8s ease forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
+/* Section Headers */
+.section-header {
+    margin-bottom: 1.2rem;
+}
 
-        .section:nth-child(even) { animation-delay: 0.2s; }
-        .section:nth-child(odd) { animation-delay: 0.1s; }
+.section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem;
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
 
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.4rem;
-            color: var(--primary);
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+.section-icon {
+    font-size: 1.2rem;
+}
 
-        /* Grid cards */
-        .grid {
-            display: grid;
-            gap: 1.5rem;
-        }
+/* Expertise Grid */
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 0.8rem;
+}
 
-        .card {
-            background: linear-gradient(135deg, #f0f9ff, var(--gray-50));
-            padding: 2rem;
-            border-radius: 14px;
-            border-left: 5px solid var(--primary);
-            transition: var(--transition);
-            box-shadow: var(--shadow-sm);
-        }
+.expertise-item {
+    background: #f9fafb;
+    padding: 0.9rem 1rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--primary-blue);
+    font-size: 0.95rem;
+    color: var(--text-medium);
+}
 
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-md);
-        }
+/* Research Section */
+.research-container {
+    display: grid;
+    grid-template-columns: minmax(0, 260px) minmax(0, 1.7fr);
+    gap: 1.5rem;
+    align-items: flex-start;
+}
 
-        [data-theme="dark"] .card {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-        }
+.research-image {
+    width: 100%;
+    height: 180px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 2px solid var(--light-blue);
+}
 
-        /* Research layout */
-        .research-layout {
-            display: grid;
-            grid-template-columns: 340px 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
+.research-list {
+    list-style: none;
+}
 
-        .research-img {
-            border-radius: 14px;
-            box-shadow: var(--shadow-md);
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-        }
+.research-item {
+    background: #f9fafb;
+    padding: 1rem;
+    margin-bottom: 0.9rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--accent-blue);
+    font-size: 0.95rem;
+}
 
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            text-align: center;
-            padding: 3rem;
-            margin-top: 5rem;
-            border-radius: 20px 20px 0 0;
-        }
+.research-title {
+    font-weight: 600;
+    color: var(--dark-blue);
+    margin-bottom: 0.35rem;
+    font-size: 0.98rem;
+}
 
-        /* Responsive */
-        @media (max-width: 968px) {
-            .hero, .research-layout { grid-template-columns: 1fr; text-align: center; }
-            .hero-text h1 { font-size: 2.6rem; }
-            .profile-img { max-width: 280px; margin: 0 auto; }
-        }
+.research-description {
+    color: var(--text-medium);
+    line-height: 1.55;
+}
 
-        @media (max-width: 640px) {
-            main { padding: 100px 1rem 2rem; }
-            .section { padding: 2rem; }
-            .section-title { font-size: 2rem; }
-            .btn-group { justify-content: center; }
-        }
+.research-funding {
+    font-style: italic;
+    color: var(--text-light);
+    font-size: 0.86rem;
+    margin-top: 0.5rem;
+}
 
-        /* Animations */
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+/* Awards / Reusable Card Grid */
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 0.8rem;
+}
+
+.award-item {
+    background: #f9fafb;
+    padding: 0.9rem 1rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--accent-blue);
+    font-size: 0.94rem;
+}
+
+.award-title {
+    font-weight: 600;
+    color: var(--dark-blue);
+    margin-bottom: 0.25rem;
+    font-size: 0.96rem;
+}
+
+.award-description {
+    color: var(--text-medium);
+    font-size: 0.9rem;
+}
+
+.award-description a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.award-description a:hover {
+    text-decoration: underline;
+}
+
+/* Lists (Education, Publications) */
+.styled-list {
+    list-style: none;
+}
+
+.list-item {
+    background: #f9fafb;
+    padding: 0.9rem 1rem;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--primary-blue);
+    font-size: 0.94rem;
+    color: var(--text-medium);
+}
+
+.list-item a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.list-item a:hover {
+    text-decoration: underline;
+}
+
+/* Leadership / Categories */
+.leadership-category {
+    margin-bottom: 1.4rem;
+}
+
+.category-title {
+    font-weight: 600;
+    color: var(--dark-blue);
+    margin-bottom: 0.7rem;
+    font-size: 1rem;
+}
+
+/* Footer */
+.footer {
+    background: var(--primary-blue);
+    color: white;
+    text-align: center;
+    padding: 1.3rem;
+    margin-top: 2rem;
+    border-radius: 10px 10px 0 0;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav ul {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 0.7rem;
+    }
+
+    .main-container {
+        padding: 1.25rem 1rem 2rem;
+    }
+
+    .hero-section {
+        grid-template-columns: 1fr;
+        text-align: left;
+        padding: 1.5rem 1.25rem;
+    }
+
+    .profile-image {
+        max-width: 260px;
+        justify-self: center;
+    }
+
+    .cta-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .research-container {
+        grid-template-columns: 1fr;
+    }
+
+    .content-section {
+        padding: 1.4rem 1.1rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Optional: subtle appearance animation */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.content-section,
+.hero-section {
+    animation: fadeInUp 0.4s ease-out;
+}
+</style>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mahshid Ahmadian",
+        "jobTitle": "Ph.D. Candidate in Statistics and Data Science",
+        "description": "Ph.D. in Statistics and Data Science from Virginia Commonwealth University.",
+        "url": "https://mahshidahmadian.github.io",
+        "sameAs": [
+            "https://www.linkedin.com/in/mahshidahmadian",
+            "https://github.com/mahshidahmadian"
+        ],
+        "affiliation": {
+            "@type": "Organization",
+            "name": "Virginia Sea Grant",
+            "url": "https://vaseagrant.org"
+        },
+        "alumniOf": [
+            {
+                "@type": "CollegeOrUniversity",
+                "name": "Virginia Commonwealth University",
+                "url": "https://www.vcu.edu"
+            },
+            {
+                "@type": "CollegeOrUniversity",
+                "name": "Isfahan University of Technology",
+                "url": "https://www.iut.ac.ir"
+            }
+        ],
+        "award": [
+            "2023 VASG Graduate Research Fellowship",
+            "Best Poster Presentation Award, ASA Virginia Chapter 2023",
+            "The Honor Society of Phi Kappa Phi, Elected Member 2025"
+        ],
+        "knowsAbout": [
+            "Data Science",
+            "Statistics",
+            "Bayesian Modeling",
+            "Machine Learning",
+            "Geospatial Analysis",
+            "Python",
+            "High-Performance Computing"
+        ]
+    }
+    </script>
 </head>
-<body data-theme="light">
-
+<body>
     <!-- Header -->
-    <header>
+    <header class="header">
         <div class="header-container">
             <div class="logo">
                 <h1><a href="#">Mahshid Ahmadian</a></h1>
             </div>
-            <nav>
+            <nav class="nav">
                 <ul>
-                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="index.html" class="active">Homepage</a></li>
                     <li><a href="presentations.html">Presentations</a></li>
                     <li><a href="past-projects.html">Past Projects</a></li>
                 </ul>
             </nav>
-            <button class="theme-toggle" aria-label="Toggle dark mode">
-                <i class="fas fa-moon"></i>
-            </button>
         </div>
     </header>
 
-    <main>
-        <!-- Hero -->
-        <section class="hero">
-            <img src="images/profile.jpg" alt="Mahshid Ahmadian" class="profile-img" loading="lazy">
-            <div class="hero-text">
-                <p class="tagline">Hello! <i class="fas fa-hands-waving"></i></p>
-                <h1>Mahshid Ahmadian</h1>
-                <p>I am a <strong>Virginia Sea Grant Research Fellow</strong> and Ph.D. candidate in Systems Modeling and Analysis (Statistics & Data Science) at Virginia Commonwealth University.</p>
-                <p>Passionate about solving real-world challenges using Bayesian statistics, spatiotemporal modeling, machine learning, and high-performance computing.</p>
-                
-                <div class="btn-group">
-                    <a href="https://www.linkedin.com/in/mahshidahmadian" class="btn btn-primary">
-                        <i class="fab fa-linkedin-in"></i> LinkedIn
-                    </a>
-                    <a href="mailto:ahmadianm@vcu.edu" class="btn btn-outline">
-                        <i class="fas fa-envelope"></i> Email Me
-                    </a>
-                    <a href="https://github.com/mahshidahmadian" class="btn btn-outline">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <img src="images/profile.jpg" alt="Mahshid Ahmadian profile" class="profile-image" loading="lazy">
+            <div class="hero-content">
+                <div class="greeting">Hello! 👋</div>
+                <h1>My name is Mahshid Ahmadian.</h1>
+                <p>I am currently a <a href="https://vaseagrant.org/">Virginia Sea Grant</a> Research Fellow and a Ph.D. candidate in Systems Modeling and Analysis (Statistics and Data Science) in the Department of Statistical Sciences and Operations Research at Virginia Commonwealth University. I have a Master's degree in Economical and Environmental Statistics.</p>
+                <p>I have a passion for solving complex, real-world problems through statistical modeling, machine learning, and high-performance computing (HPC). My expertise spans Bayesian statistics, spatiotemporal modeling, predictive analytics, and statistical computing.</p>
+                <div class="cta-buttons">
+                    <a href="https://www.linkedin.com/in/mahshidahmadian" class="btn btn-primary">LinkedIn</a>
+                    <a href="mailto:ahmadianm@vcu.edu" class="btn btn-secondary">Email Me</a>
                 </div>
             </div>
         </section>
 
         <!-- Technical Expertise -->
-        <section class="section">
-            <h2 class="section-title"><i class="fas fa-flask"></i> Technical Expertise</h2>
-            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
-                <div class="card"><strong>Bayesian Modeling & Inference</strong><br>MCMC (Metropolis-Hastings, Gibbs), hierarchical models, mixed-effects, longitudinal data</div>
-                <div class="card"><strong>Geospatial & Environmental Modeling</strong><br>Spatiotemporal analysis, ecological data, movement trajectories</div>
-                <div class="card"><strong>Machine Learning</strong><br>Supervised/unsupervised learning, probabilistic modeling, forecasting</div>
-                <div class="card"><strong>Healthcare & Clinical Data</strong><br>Survival analysis, ordinal longitudinal models, missing data strategies</div>
-                <div class="card"><strong>High-Performance Computing</strong><br>Parallelization, Rcpp, large-scale optimization</div>
-                <div class="card"><strong>Tools</strong><br>Python, R/Rcpp, SAS, SQL, Power BI, Git</div>
+        <section class="content-section">
+            <div class="section-header">
+                <h2><span class="section-icon">🔬</span>Technical Expertise</h2>
             </div>
-        </section>
-
-        <!-- Research -->
-        <section class="section">
-            <h2 class="section-title"><i class="fas fa-search"></i> Research</h2>
-            <div class="research-layout">
-                <img src="images/research.jpg" alt="Research visualization" class="research-img" loading="lazy">
-                <div>
-                    <div class="card" style="margin-bottom: 2rem;">
-                        <h3>Ph.D. Thesis – Predictive Modeling of Fish Movement Trajectories</h3>
-                        <p>Stochastic & Bayesian models for imputation/prediction in acoustic telemetry data using hybrid MCMC + HPC. Built interactive web tool for fisheries management.</p>
-                        <p><em>Funded by Virginia Sea Grant Graduate Fellowship</em></p>
-                    </div>
-                    <div class="card" style="margin-bottom: 2rem;">
-                        <h3>Master’s Thesis – Longitudinal Ordinal Clinical Data</h3>
-                        <p>Mixed-effects ordinal regression with missingness & overdispersion handling. <a href="https://thesis.iut.ac.ir/...">Read thesis →</a>
-                    </div>
-                    <div class="card">
-                        <h3>Undergrad Research – Statistical Modeling in SAS</h3>
-                        <p>Regression, experimental design, and applied modeling projects. <a href="https://thesis.iut.ac.ir/...">View project →</a>
-                    </div>
+            <div class="expertise-grid">
+                <div class="expertise-item">
+                    <strong>Bayesian Modeling & Inference:</strong> Including Markov Chain Monte Carlo (MCMC) methods (Metropolis-Hastings, Gibbs Sampling), hierarchical models, Logistic Regression, Mixed Effects Models, Multivariate Regression, and analysis of longitudinal data.
+                </div>
+                <div class="expertise-item">
+                    <strong>Geospatial Data Modeling:</strong> Environmental/ecological data analysis, with a focus on spatiotemporal patterns and their applications.
+                </div>
+                <div class="expertise-item">
+                    <strong>Machine Learning:</strong> Supervised and Unsupervised Learning, probabilistic modeling, and time series forecasting for predictive analytics.
+                </div>
+                <div class="expertise-item">
+                    <strong>Healthcare & Biomedical Data Analysis:</strong> Modeling of medical data, survival analysis, and managing missingness in clinical datasets.
+                </div>
+                <div class="expertise-item">
+                    <strong>High-Performance Computing:</strong> Parallel computing and optimization techniques for handling large-scale datasets.
+                </div>
+                <div class="expertise-item">
+                    <strong>Programming & Tools:</strong> Proficient in R and R-C++, Python, SAS, SQL, Excel, and Power BI for data analysis, visualization, and reporting.
+                </div>
+                <div class="expertise-item">
+                    <strong>Communication:</strong> Strong communication and writing skills especially in scientific writing and grant proposal development.
                 </div>
             </div>
         </section>
 
-        <!-- Awards -->
-        <section class="section">
-            <h2 class="section-title"><i class="fas fa-trophy"></i> Awards & Honors</h2>
-            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-                <div class="card">Boyd Harshburger Travel Award <br><small>SRCS 2025</small></div>
-                <div class="card">The Honor Society of Phi Kappa Phi <br><small>Elected Member 2025</small></div>
-                <div class="card">Best Poster Award <br><small>ASA Virginia Chapter 2023</small></div>
-                <div class="card">VASG Graduate Research Fellowship <br><small>2023–2025</small></div>
-                <div class="card">NSF Participation Award <br><small>Rare & Extreme Events Workshop</small></div>
-                <div class="card">Multiple travel & scholarship awards 2021–2025</div>
+        <!-- Research -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2><span class="section-icon">🔍</span>Research</h2>
+            </div>
+            <div class="research-container">
+                <img src="images/research.jpg" alt="Mahshid presenting research data science" class="research-image" loading="lazy">
+                <div>
+                    <ul class="research-list">
+                        <li class="research-item">
+                            <div class="research-title">Develop a predictive modeling framework for movement data (PhD Thesis)</div>
+                            <div class="research-description">
+                                Developed stochastic and Bayesian predictive models to impute and predict locations in movement trajectories. Methodologies included predictive sampling, MLE and Bayesian inference, and hybrid MCMC algorithms of Metropolis-Hastings, Gibbs sampling implemented with HPC, and RC++ for efficient computation. A prototype web tool was also developed to make model outputs accessible for ecological research and fisheries management.
+                            </div>
+                            <div class="research-funding">
+                                This project is funded by <a href="https://vaseagrant.org/">Virginia Sea Grant</a> through a two-year competitive fellowship awarded to Mahshid Ahmadian, and supervised by Dr. Edward Boone (Virginia Commonwealth University), and <a href="https://www.vims.edu/people/chiu_gs/">Dr. Grace Chiu</a> (Virginia Institute of Marine Science).
+                            </div>
+                        </li>
+
+                        <li class="research-item">
+                            <div class="research-title">Modeling clinical longitudinal ordinal data (Master's Thesis)</div>
+                            <div class="research-description">
+                                Designed and implemented advanced statistical models for analyzing longitudinal ordinal data for a clinical study on migraine patients. The methodology combined mixed-effects modeling with ordinal link functions and incorporated appropriate strategies to handle data gaps and excess variability. <a href="https://thesis.iut.ac.ir/bayesian-modeling-ordinal-longitudinal-data-handling-missingness-and-overdispersionmahshid-ahmadian">View thesis</a>
+                            </div>
+                        </li>
+
+                        <li class="research-item">
+                            <div class="research-title">Modeling continuous response variable using SAS software (Undergrad Research)</div>
+                            <div class="research-description">
+                                During my undergraduate research, I focused on a broad range of statistical modeling techniques using SAS software, including regression analysis and experimental design. The project emphasized learning and applying various modeling approaches within SAS, strengthening my skills in both statistical theory and software implementation. <a href="https://thesis.iut.ac.ir/mahshid-ahmadian">View project</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
 
-        <!-- More sections (Education, Publications, Leadership) follow the same clean card-based style -->
-        <!-- (Content unchanged, just wrapped in beautiful cards) -->
-
-        <!-- Footer -->
-        <footer>
-            <p style="font-size:1.1rem;">© 2025 Mahshid Ahmadian • Built with ❤️ and a lot of Bayesian inference</p>
-            <div style="margin-top:1rem; opacity:0.9;">
-                <a href="https://linkedin.com/in/mahshidahmadian" style="color:white; margin:0 1rem;"><i class="fab fa-linkedin fa-lg"></i></a>
-                <a href="https://github.com/mahshidahmadian" style="color:white; margin:0 1rem;"><i class="fab fa-github fa-lg"></i></a>
-                <a href="mailto:ahmadianm@vcu.edu" style="color:white; margin:0 1rem;"><i class="fas fa-envelope fa-lg"></i></a>
+        <!-- About My Current Project -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2><span class="section-icon">🚀</span>About My Current Project</h2>
             </div>
-        </footer>
-    </main>
+            <p>As part of my current project, I am working on several advanced initiatives. One key focus is developing a new predictive model for imputing and predicting geospatial data, which will help improve the accuracy of our spatial analyses. I am also creating a web-based tool to support data-driven decision-making in fisheries management, enabling stakeholders to make more informed choices based on real-time data. To handle the computational demands of these tasks, I am optimizing large-scale models using High-Performance Computing (HPC) and parallelization techniques to ensure efficiency and scalability. Additionally, I am leveraging Rcpp to integrate efficient C++ implementations within R, which significantly accelerates our computations and enhances overall performance.</p>
+        </section>
 
-    <!-- Dark mode toggle script -->
-    <script>
-        const toggle = document.querySelector('.theme-toggle');
-        const body = document.body;
-        const icon = toggle.querySelector('i');
+        <!-- Awards and Honors -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2><span class="section-icon">🏆</span>Awards and Honors</h2>
+            </div>
+            <div class="awards-grid">
+                <div class="award-item">
+                    <div class="award-title">Boyd Harshburger Travel Award</div>
+                    <div class="award-description">Southern Regional Council on Statistics, the 2025 summer Research Conference.</div>
+                </div>
+                <div class="award-item">
+                    <div class="award-title">The Honor Society of Phi Kappa Phi, elected member, Jan 2025</div>
+                    <div class="award-description">National interdisciplinary honor society recognizing academic excellence across all fields of study. <a href="https://phikappaphi.meritpages.com/stories/Mahshid-Ahmadian-Elected-to-Membership-into-The-Honor-Society-of-Phi-Kappa-Phi/158007878?">View recognition</a></div>
+                </div>
+                <div class="award-item">
+                    <div class="award-title">NSF Participation Award</div>
+                    <div class="award-description">Awarded for participating in the NSF Workshop on Data-driven Modeling and Prediction of Rare and Extreme Events.</div>
+                </div>
+                <div class="award-item">
+                    <div class="award-title">Best poster presentation award</div>
+                    <div class="award-description">ASA Virginia Chapter 2023 Annual Meeting, Richmond, VA, Oct. 2023. <a href="https://mahshidahmadian.github.io/images/Poster_first_award_presentation.png">View poster</a></div>
+                </div>
+                <div class="award-item">
+                    <div class="award-title">2023 VASG Graduate Research Fellowship</div>
+                    <div class="award-description">Virginia Sea Grant, Virginia, Sep 2023. <a href="https://vaseagrant.org/2023-graduate-fellows/">Learn more</a></div>
+                </div>
+                <div class="award-item">
+                    <div class="award-title">Boyd Harshburger Travel Award</div>
+                    <div class="award-description">Southern Regional Council on Statistics, the 2022 Research Conference.</div>
+                </div>
+                <div class="award-item">
+                    <div class="award-title">Scholarship Award of the Honor of Phi Kappa Phi</div>
+                    <div class="award-description">College of Humanities and Sciences, Virginia Commonwealth University, Richmond, VA, Apr. 2022.</div>
+                </div>
+                <div class="award-item">
+                    <div class="award-title">NSF Graduate Travel Award</div>
+                    <div class="award-description">Southern Regional Council on Statistics, the 2021 Research Conference.</div>
+                </div>
+            </div>
+        </section>
 
-        toggle.addEventListener('click', () => {
-            if (body.getAttribute('data-theme') === 'dark') {
-                body.setAttribute('data-theme', 'light');
-                icon.classList.replace('fa-sun', 'fa-moon');
-            } else {
-                body.setAttribute('data-theme', 'dark');
-                icon.classList.replace('fa-moon', 'fa-sun');
-            }
-        });
+        <!-- Education -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2><span class="section-icon">🎓</span>Education</h2>
+            </div>
+            <ul class="styled-list">
+                <li class="list-item">
+                    <a href="https://www.vcu.edu/">Virginia Commonwealth University</a>, <a href="https://sysm.vcu.edu/">Systems Modeling and Analysis</a> (Concentration in Statistics and Data Science), Ph.D.
+                </li>
+                <li class="list-item">
+                    <a href="https://www.wm.edu/">William & Mary</a>'s Batten School of Coastal & Marine Sciences, <a href="https://www.vims.edu/">Virginia Institute of Marine Science</a>, Affiliate student and researcher of <a href="https://www.vims.edu/research/units/labgroups/estdats/">The Environmental Statistics and Transdisciplinary Data Science Lab</a>.
+                </li>
+                <li class="list-item">
+                    <a href="https://english.iut.ac.ir/">Isfahan University of Technology</a>, Economical and Environmental Statistics, M.Sc.
+                </li>
+                <li class="list-item">
+                    <a href="https://english.iut.ac.ir/">Isfahan University of Technology</a>, Statistics, B.Sc.
+                </li>
+            </ul>
+        </section>
 
-        // Auto detect preference
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            body.setAttribute('data-theme', 'dark');
-            icon.classList.replace('fa-moon', 'fa-sun');
-        }
-    </script>
+        <!-- Publications -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2><span class="section-icon">📚</span>Publications</h2>
+            </div>
+            <ul class="styled-list">
+                <li class="list-item">
+                    Reid, J.; Ahmadian, M.; Jennings, D.; Pepperl, A. A.; Adkins, A.; Anthony, K. C.; ... Johnson, A. A. (2025). Saying it Aloud: Inclusive Teaching Statements Impact on Sense of Belonging and Engagement. Journal of College Science Teaching 1–14. <a href="https://doi.org/10.1080/0047231X.2025.2487437">https://doi.org/10.1080/0047231X.2025.2487437</a>
+                </li>
+                <li class="list-item">
+                    Reid, J.; Ahmadian, M.; Wheeler, L.; Durfee, R. R.; Jennings, D.; Golding, S. E.; Johnson, A. A., Moving Beyond Pedagogy: A Measurement of the Impact Faculty's Presence has on the Learning Environment (submitted)
+                </li>
+                <li class="list-item">
+                    Ahmadian M.; Boone, E. L.; Chiu, G. S., A New Perspective to Fish Trajectory Imputation: A Methodology for Spatiotemporal Modeling of Acoustically Tagged Fish Data (submitted)
+                </li>
+                <li class="list-item">
+                    Uddyback, H.; Ahmadian, M.; Tivenan, S.; Lu, Q., Forecasts of Motor Vehicle Traffic Fatalities in the United States using Time Series Regression Models (submitted)
+                </li>
+            </ul>
+        </section>
 
-    <!-- JSON-LD remains unchanged (you already have it) -->
-    <script type="application/ld+json">
-    { /* your existing schema */ }
-    </script>
-</body>
-</html>
+        <!-- Leadership and Community Engagement -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2><span class="section-icon">👥</span>Leadership and Community Engagement</h2>
+            </div>
+            
+            <div class="leadership-category">
+                <div class="category-title">Community Involvement:</div>
+                <div class="awards-grid">
+                    <div class="award-item">
+                        <div class="award-title"><a href="https://va-whpc.org/">Virginia Women in High Performance Computing (VA-WHPC)</a></div>
+                        <div class="award-description">Committee Member, Feb 2025 - Present</div>
+                    </div>
+                    <div class="award-item">
+                        <div class="award-title"><a href="https://siam.vcu.edu/">VCU Society for Industrial and Applied Mathematics (SIAM) Chapter</a></div>
+                        <div class="award-description">Secretary, 2024 - Present</div>
+                    </div>
+                    <div class="award-item">
+                        <div class="award-title">VCU Statistical Sciences and Operations Research Data Science Team</div>
+                        <div class="award-description">President, 2022–2023</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="leadership-category">
+                <div class="category-title">Mentoring Experiences:</div>
+                <div class="awards-grid">
+                    <div class="award-item">
+                        <div class="award-title">Student Lightning Talk Mentor</div>
+                        <div class="award-description">Mentored a student <a href="https://va-whpc.org/va-whpc-student-lightning-talks-2024/">(more info)</a> who delivered a lightning talk at VA-WHPC and won First Place Prize, Nov 2024.</div>
+                    </div>
+                    <div class="award-item">
+                        <div class="award-title">STEM Undergraduate Student Mentor</div>
+                        <div class="award-description">Mentored STEM undergraduate students in the 2nd annual SURE Conference, Oct 2025.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="leadership-category">
+                <div class="category-title">Volunteering Experiences:</div>
+                <div class="awards-grid">
+                    <div class="award-item">
+                        <div class="award-title">VCU Global Education Office</div>
+                        <div class="award-description">RAMily Captain program, Richmond, VA, Fall 2022</div>
+                    </div>
+                    <div class="award-item">
+
+
