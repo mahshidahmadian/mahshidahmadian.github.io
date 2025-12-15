@@ -1,59 +1,212 @@
-<!DOCTYPE HTML>
-<!--
-	Ex Machina by TEMPLATED
-    templated.co @templatedco
-    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mahshid Ahmadian - Past Projects</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="google-site-verification" content="Y2QwmOg2WKRNMv0FAMvVJX5LLd9xJLIbQIyCCBX7R_M" />
+    <meta name="google-site-verification" content="Y2QwmOg2WKRNMv0FAMvVJX5LLd9xJLIbQIyCCBX7R_M" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-   	<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:700italic,400,300,700" rel="stylesheet" type="text/css">
-	<link href="//fonts.googleapis.com/css?family=Open+Sans:400,400italic,700" rel="stylesheet" type="text/css">
-    <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="js/jquery.min.js"></script>
-    <script src="js/skel.min.js"></script>
-    <script src="js/skel-panels.min.js"></script>
-    <script src="js/init.js"></script>
-    <noscript>
-        <link rel="stylesheet" href="css/skel-noscript.css">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/style-desktop.css">
-    </noscript>
-    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-    <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
-	<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CreativeWork",
-  "name": "Projects by Mahshid Ahmadian",
-  "creator": {
-    "@type": "Person",
-    "name": "Mahshid Ahmadian",
-    "url": "https://mahshidahmadian.github.io"
-  },
-  "description": "Website of Mahshid Ahmadian.",
-  "url": "https://mahshidahmadian.github.io/past-projects.html"
-}
-</script>
+    <meta name="description" content="Past projects by Mahshid Ahmadian - Data Science and Statistics Research">
+    <meta name="keywords" content="data science, statistics, time series, Bayesian modeling, machine learning">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #1d4ed8;
+            --accent-blue: #0ea5e9;
+            --text-main: #111827;
+            --text-muted: #4b5563;
+            --text-light: #6b7280;
+            --border-color: #e5e7eb;
+            --bg-page: #ffffff;
+            --bg-section: #ffffff;
+        }
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Page */
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background: var(--bg-page);
+        }
+
+        /* Header */
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0.75rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+        }
+
+        .logo a {
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.25rem;
+            font-size: 0.95rem;
+        }
+
+        .nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            padding-bottom: 0.15rem;
+            border-bottom: 2px solid transparent;
+            transition: color 0.15s ease, border-color 0.15s ease;
+        }
+
+        .nav a:hover,
+        .nav .active a {
+            color: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+
+        /* Main container */
+        .main-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1.75rem 1.25rem 2.5rem;
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 0.4rem;
+        }
+
+        .page-header p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Project list */
+        .project-list {
+            list-style: none;
+        }
+
+        .project-item {
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .project-item:last-child {
+            border-bottom: none;
+        }
+
+        .project-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .project-description {
+            color: var(--text-muted);
+            font-size: 0.94rem;
+            line-height: 1.65;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--border-color);
+            padding: 1.2rem 1.25rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .footer a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav ul {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                gap: 0.75rem;
+            }
+
+            .main-container {
+                padding: 1.25rem 1rem 2.25rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": "Projects by Mahshid Ahmadian",
+        "creator": {
+            "@type": "Person",
+            "name": "Mahshid Ahmadian",
+            "url": "https://mahshidahmadian.github.io"
+        },
+        "description": "Past projects by Mahshid Ahmadian in data science and statistics.",
+        "url": "https://mahshidahmadian.github.io/past-projects.html"
+    }
+    </script>
 </head>
 <body>
-
     <!-- Header -->
-    <div id="header">
-        <div class="container">
-            <!-- Logo -->
-            <div id="logo">
-                <h1><a href="#">Mahshid Ahmadian</a></h1>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1><a href="index.html">Mahshid Ahmadian</a></h1>
             </div>
-            <!-- Nav -->
-            <nav id="nav">
+            <nav class="nav">
                 <ul>
                     <li><a href="index.html">Homepage</a></li>
                     <li><a href="presentations.html">Presentations</a></li>
@@ -61,47 +214,58 @@
                 </ul>
             </nav>
         </div>
-    </div>
-    <!-- Header -->
+    </header>
 
-    <!-- Main -->
-    <div id="page">
-        <div id="main" class="container">
-            <section>
-                <header>
-                    <h2>List of Past Projects (Sorted by Date)</h2>
-                </header>
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Page Header -->
+        <section class="page-header">
+            <h1>Past Projects</h1>
+            <p>A collection of research projects in statistical modeling, time series analysis, and machine learning.</p>
+        </section>
 
-                <h3>Forecasts of Motor Vehicle Traffic Fatalities in the United States using Time Series Regression Models</h3>
-                <p>With an increased accident rate, national road safety has become an issue during COVID-19. The more accidents increase the likelihood of more fatalities. This article considers a time series regression model for forecasting monthly fatality counts in the United States with the publicly accessible traffic fatality data. The time series regression model accounts for the prominent statistical features in the data, including seasonality, autocorrelation, outliers, and the intervention effect of the COVID-19 pandemic. Additionally, total miles traveled and average gas prices are used as the potential covariates to help forecast fatality counts. Overall, forecasts generated by our method are more accurate than those using the seasonal autoregressive integrative moving average models, exponential smoothing methods, and the recurrent neural network model. They are roughly similar to those using the time series cross-sectional regression model implemented by the National Highway Traffic Safety Administration. Moreover, our approach has the capability to forecast monthly fatality counts in the coming years.</p>
+        <!-- Project List -->
+        <ul class="project-list">
+            <li class="project-item">
+                <h2 class="project-title">Forecasts of Motor Vehicle Traffic Fatalities in the United States using Time Series Regression Models</h2>
+                <p class="project-description">With an increased accident rate, national road safety has become an issue during COVID-19. The more accidents increase the likelihood of more fatalities. This article considers a time series regression model for forecasting monthly fatality counts in the United States with the publicly accessible traffic fatality data. The time series regression model accounts for the prominent statistical features in the data, including seasonality, autocorrelation, outliers, and the intervention effect of the COVID-19 pandemic. Additionally, total miles traveled and average gas prices are used as the potential covariates to help forecast fatality counts. Overall, forecasts generated by our method are more accurate than those using the seasonal autoregressive integrative moving average models, exponential smoothing methods, and the recurrent neural network model. They are roughly similar to those using the time series cross-sectional regression model implemented by the National Highway Traffic Safety Administration. Moreover, our approach has the capability to forecast monthly fatality counts in the coming years.</p>
+            </li>
 
-                <h3>Transfer Function Analysis for the Dow Jones and the Australia Ordinaries indices</h3>
-                <p>This project focuses on Transfer Function Analysis applied to the Dow Jones and Australia Ordinaries indices. In multivariate time series analysis, we often encounter situations where one time series is influenced by the past values of another, indicating a relationship between them. This interdependence is characterized by a transfer function relationship, which can be effectively modeled. Our analysis aims to explore this relationship between the indices, providing insights into their dynamic interactions and enhancing our understanding of their respective behaviors in the financial market.</p>
+            <li class="project-item">
+                <h2 class="project-title">Transfer Function Analysis for the Dow Jones and the Australia Ordinaries indices</h2>
+                <p class="project-description">This project focuses on Transfer Function Analysis applied to the Dow Jones and Australia Ordinaries indices. In multivariate time series analysis, we often encounter situations where one time series is influenced by the past values of another, indicating a relationship between them. This interdependence is characterized by a transfer function relationship, which can be effectively modeled. Our analysis aims to explore this relationship between the indices, providing insights into their dynamic interactions and enhancing our understanding of their respective behaviors in the financial market.</p>
+            </li>
 
-                <h3>Crime Analysis of the city of Baltimore using Point Pattern Analysis</h3>
-                <p>This study introduces an approach to spatial and temporal crime analysis using point pattern analysis, focusing on crime events in Baltimore. We explore the nature of point processes—random collections of points in continuous space or time—and examine their application to various phenomena, including crime occurrences. Our research emphasizes the importance of effective statistical methods for analyzing data derived from point processes, classifying them into the spatial and spatio-temporal models. We apply three structured point process models: the Inhomogeneous Poisson process, the Log-Gaussian Cox process, and the Hawkes process, to capture the spatial patterns of crime incidents. Additionally, we investigate the impact of the COVID-19 pandemic on these patterns and predict future crime hotspots. This work aims to enhance the understanding of crime dynamics and inform policymakers about the potential future trends.</p>
+            <li class="project-item">
+                <h2 class="project-title">Crime Analysis of the city of Baltimore using Point Pattern Analysis</h2>
+                <p class="project-description">This study introduces an approach to spatial and temporal crime analysis using point pattern analysis, focusing on crime events in Baltimore. We explore the nature of point processes—random collections of points in continuous space or time—and examine their application to various phenomena, including crime occurrences. Our research emphasizes the importance of effective statistical methods for analyzing data derived from point processes, classifying them into the spatial and spatio-temporal models. We apply three structured point process models: the Inhomogeneous Poisson process, the Log-Gaussian Cox process, and the Hawkes process, to capture the spatial patterns of crime incidents. Additionally, we investigate the impact of the COVID-19 pandemic on these patterns and predict future crime hotspots. This work aims to enhance the understanding of crime dynamics and inform policymakers about the potential future trends.</p>
+            </li>
 
-                <h3>Does Crime Cause Itself? A Time Series Analysis of Violent Crime Rates in Virginia</h3>
-                <p>Crime has captivated the American public and policymakers for over a century. While numerous theories explore the nature and causes of violent crime, there has been limited attention given to the potential endogeneity of crime. Additionally, quantitative models that assess causality and predictive capability are largely absent. This research aims to address these gaps by applying ARIMA time series techniques to violent crime rates in Virginia, covering a 35-year period from 1985 to 2020. We test several models and find that the AR(1) model demonstrates the best explanatory power for Virginia’s crime rates. Our analysis also indicates that violent crime rates exhibit auto-regressive causality. Using the AR(1) model, we predict a gradual increase in violent crime in the Commonwealth over the next decade. The conclusions of this paper should prove valuable to government officials and other stakeholders affected by crime.</p>
+            <li class="project-item">
+                <h2 class="project-title">Does Crime Cause Itself? A Time Series Analysis of Violent Crime Rates in Virginia</h2>
+                <p class="project-description">Crime has captivated the American public and policymakers for over a century. While numerous theories explore the nature and causes of violent crime, there has been limited attention given to the potential endogeneity of crime. Additionally, quantitative models that assess causality and predictive capability are largely absent. This research aims to address these gaps by applying ARIMA time series techniques to violent crime rates in Virginia, covering a 35-year period from 1985 to 2020. We test several models and find that the AR(1) model demonstrates the best explanatory power for Virginia's crime rates. Our analysis also indicates that violent crime rates exhibit auto-regressive causality. Using the AR(1) model, we predict a gradual increase in violent crime in the Commonwealth over the next decade. The conclusions of this paper should prove valuable to government officials and other stakeholders affected by crime.</p>
+            </li>
 
-                <h3>Hierarchical Bayesian Modeling of Binary data: A Heart Failure Clinical Research</h3>
-                <p>Heart failure occurs when the heart is unable to pump blood effectively. Various conditions can weaken the heart’s pumping ability, preventing it from meeting the normal demands of circulating blood throughout the body. Numerous factors may influence a patient’s experience with heart failure, potentially leading to mortality. In this research, we apply hierarchical analysis to a dataset collected over the time in Pakistan, which includes information on individuals suffering from heart failure. Initially, the data is clustered based on patients’ ages, followed by the fitting of a hierarchical logistic regression model to the binary response variable.</p>
+            <li class="project-item">
+                <h2 class="project-title">Hierarchical Bayesian Modeling of Binary data: A Heart Failure Clinical Research</h2>
+                <p class="project-description">Heart failure occurs when the heart is unable to pump blood effectively. Various conditions can weaken the heart's pumping ability, preventing it from meeting the normal demands of circulating blood throughout the body. Numerous factors may influence a patient's experience with heart failure, potentially leading to mortality. In this research, we apply hierarchical analysis to a dataset collected over the time in Pakistan, which includes information on individuals suffering from heart failure. Initially, the data is clustered based on patients' ages, followed by the fitting of a hierarchical logistic regression model to the binary response variable.</p>
+            </li>
 
-                <h3>Prediction of death due to heart failure using logistic regression</h3>
-                <p>In this project, we begin with a brief exploration of the dataset, describing each variable individually. Next, we fit a logistic regression model to the data and interpret the results. Following this, we apply a subset selection method to develop a reduced model with fewer predictors for the response variable. Finally, we use principal component analysis (PCA) for data reduction, fitting a logistic model using the principal component scores. We perform model comparisons and predict mortality for patients suffering from heart failure for each model introduced.</p>
+            <li class="project-item">
+                <h2 class="project-title">Prediction of death due to heart failure using logistic regression</h2>
+                <p class="project-description">In this project, we begin with a brief exploration of the dataset, describing each variable individually. Next, we fit a logistic regression model to the data and interpret the results. Following this, we apply a subset selection method to develop a reduced model with fewer predictors for the response variable. Finally, we use principal component analysis (PCA) for data reduction, fitting a logistic model using the principal component scores. We perform model comparisons and predict mortality for patients suffering from heart failure for each model introduced.</p>
+            </li>
 
-                <h3>Bayesian Modeling of Binary and Ordinal data: A survey analysis on COVID-19</h3>
-                <p>The COVID-19 virus causes severe respiratory diseases, and the pandemic that began in 2020 significantly impacted lives around the globe. This research presents a simple analysis of data collected through an online survey in Iran. Initially, we compute the posterior distribution and the values of the hyperparameters. Subsequently, we derive Bayesian credible intervals and conduct Bayesian hypothesis testing. A logistic regression model is fitted to both binary and ordinal responses, followed by the calculation of Bayesian estimates for the model parameters.</p>
-            </section>
-        </div>
-    </div>
-    <!-- /Main -->
+            <li class="project-item">
+                <h2 class="project-title">Bayesian Modeling of Binary and Ordinal data: A survey analysis on COVID-19</h2>
+                <p class="project-description">The COVID-19 virus causes severe respiratory diseases, and the pandemic that began in 2020 significantly impacted lives around the globe. This research presents a simple analysis of data collected through an online survey in Iran. Initially, we compute the posterior distribution and the values of the hyperparameters. Subsequently, we derive Bayesian credible intervals and conduct Bayesian hypothesis testing. A logistic regression model is fitted to both binary and ordinal responses, followed by the calculation of Bayesian estimates for the model parameters.</p>
+            </li>
+        </ul>
+    </main>
 
     <!-- Footer -->
-<div id="copyright" class="container">
-    © 2025 Mahshid Ahmadian. Originally based on a template by <a href="https://templated.co/">TEMPLATED</a>, with significant modifications.
-</div>
-    <!-- /Footer -->
-
+    <footer class="footer">
+        <p>&copy; 2025 Mahshid Ahmadian. Originally based on a template by <a href="https://templated.co/">TEMPLATED</a>, with significant modifications.</p>
+    </footer>
 </body>
 </html>
