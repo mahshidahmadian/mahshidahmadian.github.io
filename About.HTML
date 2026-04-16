@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Mahshid Ahmadian</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e3050;
+            --accent: #3d5a8c;
+            --light-bg: #f8f9fa;
+            --border: #e5e7eb;
+            --text-dark: #1f2937;
+            --text-muted: #6b7280;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--text-dark);
+            background: white;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            border-bottom: 1px solid var(--border);
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .about-intro {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--light-bg);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .role-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+
+        .role-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+        }
+
+        .role-title {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.05rem;
+        }
+
+        .role-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .role-org {
+            color: var(--accent);
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .role-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        ul {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .edu-card {
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 6px;
+            background: white;
+        }
+
+        .edu-degree {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-school {
+            color: var(--accent);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-year {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-box {
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 6px;
+            background: white;
+        }
+
+        .skill-box h4 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .skill-box p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .awards-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .award-item {
+            padding: 1rem;
+            background: var(--light-bg);
+            border-radius: 6px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .award-title {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .award-meta {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }
+
+        .courses-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .course-tag {
+            background: var(--light-bg);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border);
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .role-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .role-date {
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Mahshid Ahmadian</a>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/talks.html">Impact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>About Me</h1>
+        <div class="about-intro">
+            <p>Statistician and data scientist with a Ph.D. in Statistics and Data Science and 5+ years of research, teaching, consulting, and mentoring experience. I'm passionate about making quantitative methods accessible to diverse audiences, and I work at the intersection of rigorous statistical inference and real-world impact in environmental science, public health, and policy.</p>
+        </div>
+
+        <h2>Education</h2>
+        <div class="education-grid">
+            <div class="edu-card">
+                <div class="edu-degree">Ph.D., Statistics and Data Science</div>
+                <div class="edu-school"><a href="https://www.vcu.edu/">Virginia Commonwealth University</a></div>
+                <div class="edu-year">Expected 2025 | GPA: 3.89</div>
+                <p style="margin-top: 0.75rem; font-size: 0.9rem; color: var(--text-muted);">Systems Modeling and Analysis. Dissertation: Bayesian Animal Movement Models.</p>
+            </div>
+            <div class="edu-card">
+                <div class="edu-degree">Master's Degree, Economical and Environmental Statistics</div>
+                <div class="edu-school"><a href="https://english.iut.ac.ir/">Isfahan University of Technology</a></div>
+                <div class="edu-year">2017</div>
+                <p style="margin-top: 0.75rem; font-size: 0.9rem; color: var(--text-muted);">Thesis: Mixed-effects models for longitudinal ordinal health outcomes.</p>
+                <a href="https://thesis.iut.ac.ir/bayesian-modeling-ordinal-longitudinal-data-handling-missingness-and-overdispersionmahshid-ahmadian" style="font-size: 0.9rem; color: var(--accent); text-decoration: none; font-weight: 500;">View thesis →</a>
+            </div>
+            <div class="edu-card">
+                <div class="edu-degree">Bachelor's Degree, Statistics</div>
+                <div class="edu-school"><a href="https://english.iut.ac.ir/">Isfahan University of Technology</a></div>
+                <div class="edu-year">2014</div>
+                <p style="margin-top: 0.75rem; font-size: 0.9rem; color: var(--text-muted);">Undergrad Research: Modeling continuous response variable using SAS software.</p>
+                <a href="https://thesis.iut.ac.ir/mahshid-ahmadian"style="font-size: 0.9rem; color: var(--accent); text-decoration: none; font-weight: 500;>View project</a>
+            </div>
+        </div>
+
+        <div style="margin-top: 2rem; padding: 1.5rem; background: white; border: 1px solid var(--border); border-radius: 6px; border-left: 4px solid var(--accent);">
+            <p style="font-size: 0.95rem; color: var(--text-dark); line-height: 1.7;">
+                <strong>Affiliate Researcher:</strong> <a href="https://www.wm.edu/">The College of William & Mary</a>, <a href="https://www.vims.edu/">Virginia Institute of Marine Science</a>. Affiliate student and researcher of <a href="https://www.vims.edu/research/units/labgroups/estdats/">The Environmental Statistics and Transdisciplinary Data Science Lab</a>.
+            </p>
+        </div>
+
+        <h2>Professional Experience</h2>
+
+        <h3>Research & Data Science</h3>
+
+        <div class="role-item">
+            <div class="role-header">
+                <span class="role-title">Data Science Intern</span>
+                <span class="role-date">2026 – Present</span>
+            </div>
+            <div class="role-org">Virginia Department of Conservation & Recreation, Richmond, VA</div>
+            <div class="role-description">
+                <ul>
+                    <li>This position is funded and placed through the Virginia Sea Grant.</li>
+                    <li>Work involves geospatial analysis using ArcGIS Pro and applied machine learning methods.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="role-item">
+            <div class="role-header">
+                <span class="role-title">Graduate Research Fellow</span>
+                <span class="role-date">2023 – 2025</span>
+            </div>
+            <div class="role-org">Virginia Sea Grant / Virginia Commonwealth University</div>
+            <div class="role-description">
+                <ul>
+                    <li>Developed a Bayesian predictive model for imputing and forecasting spatiotemporal data, improving decision-making accuracy for fisheries policy.</li>
+                    <li>Built automated data workflows, enhancing reproducibility and integrity for complex, large-scale spatiotemporal datasets.</li>
+                    <li>Designed an Oracle simulation framework to evaluate model accuracy and robustness.</li>
+                    <li>Developed production-ready R Shiny web application that operationalizes PhD research models, providing a user-friendly interface for non-technical stakeholders.</li>
+                    <li>Optimized large-scale Bayesian and MCMC models using High-Performance Computing (HPC) and integrated efficient C++ code via Rcpp.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="role-item">
+            <div class="role-header">
+                <span class="role-title">Data Scientist</span>
+                <span class="role-date">2022 – 2023</span>
+            </div>
+            <div class="role-org">Howard Hughes Medical Institute Education Project, VCU</div>
+            <div class="role-description">
+                <ul>
+                    <li>Collaborated with interdisciplinary researchers on HHMI-funded project to support educational initiatives through data analysis and visualization.</li>
+                    <li>Prepared reports and visualizations for stakeholders; contributed to multiple peer-reviewed publications.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>Teaching & Consulting</h3>
+
+        <div class="role-item">
+            <div class="role-header">
+                <span class="role-title">Adjunct Faculty, Department of Mathematics</span>
+                <span class="role-date">May 2022 – July 2022</span>
+            </div>
+            <div class="role-org">Virginia Commonwealth University, Richmond, VA</div>
+            <div class="role-description">
+                <ul>
+                    <li>Taught Calculus with Analytic Geometry to undergraduate students as sole instructor of record.</li>
+                    <li>Created course materials and assessments; held regular office hours to support student success.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="role-item">
+            <div class="role-header">
+                <span class="role-title">Statistical Consultant</span>
+                <span class="role-date">2021 – 2023</span>
+            </div>
+            <div class="role-org">Statistics & Analytics Consulting Lab, VCU</div>
+            <div class="role-description">
+                <ul>
+                    <li>Consulted on diverse research projects across medicine, public health, psychology, and finance.</li>
+                    <li>Recommended appropriate statistical methods tailored to each study's design and objectives.</li>
+                    <li>Implemented data cleaning, exploratory analysis, generalized linear models, machine learning methods, and visualizations to communicate complex results to both technical and non-technical audiences.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-box">
+                <h4>Programming & Tools</h4>
+                <p>R (Rcpp, Shiny, tidyverse), Python (NumPy, Pandas, scikit-learn), C++, SQL, SAS, SPSS, Git, Jupyter Notebooks, Power BI, High-Performance Computing (Slurm)</p>
+            </div>
+            <div class="skill-box">
+                <h4>Data Engineering</h4>
+                <p>ETL Pipelines, Data Wrangling & Quality Control, Geospatial Data (ArcGIS Pro, GDAL), API Integration, REDCap</p>
+            </div>
+            <div class="skill-box">
+                <h4>Statistical & ML Methods</h4>
+                <p>Bayesian Inference, MCMC, Spatiotemporal Modeling, Time Series Forecasting, Linear/Logistic Regression, GLMs, Mixed-Effects Models, Supervised/Unsupervised ML, Missing Data Imputation</p>
+            </div>
+            <div class="skill-box">
+                <h4>AI & LLMs</h4>
+                <p>Exploring LangChain, prompt engineering, agentic workflows for data analysis and research automation</p>
+            </div>
+            <div class="skill-box">
+                <h4>Soft Skills</h4>
+                <p>Mentorship & Team Collaboration, Scientific Writing, Presenting Technical Insights to Non-Expert Audiences, Accessibility in Quantitative Work</p>
+            </div>
+        </div>
+
+        <h2>Selected Honors & Awards</h2>
+        <div class="awards-list">
+            <div class="award-item">
+                <div class="award-title">Knauss Marine Policy Fellowship Finalist</div>
+                <div class="award-meta">2026</div>
+            </div>
+            <div class="award-item">
+                <div class="award-title">The Honor Society of Phi Kappa Phi, Elected Member</div>
+                <div class="award-meta">January 2025</div>
+            </div>
+            <div class="award-item">
+                <div class="award-title">NSF Participation Award, NSF Workshop on Data-driven Modeling and Prediction of Rare and Extreme Events</div>
+                <div class="award-meta">December 2024</div>
+            </div>
+            <div class="award-item">
+                <div class="award-title">Best Poster Presentation Award, ASA Virginia Chapter Annual Meeting</div>
+                <div class="award-meta">October 2023</div>
+            </div>
+            <div class="award-item">
+                <div class="award-title">Virginia Sea Grant Graduate Research Fellowship</div>
+                <div class="award-meta">September 2023</div>
+            </div>
+        </div>
+
+        <h2>Leadership & Community</h2>
+
+        <h3>Community Involvement</h3>
+        <ul>
+            <li><strong>Virginia Women in High Performance Computing (VA-WHPC)</strong> — Committee Member (Feb 2025–Present)</li>
+            <li><strong>VCU Society for Industrial and Applied Mathematics (SIAM) Chapter</strong> — Secretary (2024–Present)</li>
+            <li><strong>VCU Statistical Sciences and Operations Research Data Science Team</strong> — President (2022–2023)</li>
+        </ul>
+
+        <h3>Mentoring & Volunteering</h3>
+        <ul>
+            <li>Mentored a student who delivered a lightning talk at VA-WHPC and won First Place Prize (Nov 2024)</li>
+            <li>Mentored STEM undergraduate students in the 2nd Annual SURE Conference (Oct 2025)</li>
+            <li>RAMily Captain, VCU Global Education Office (Fall 2022)</li>
+        </ul>
+
+        <h3>Professional Affiliations</h3>
+        <ul>
+            <li>Affiliate Student, Virginia Institute of Marine Science (William & Mary)</li>
+            <li>Member, Washington Statistical Society (WSS)</li>
+            <li>Member, American Statistical Association (ASA)</li>
+        </ul>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Mahshid Ahmadian. Built with care for clarity and impact.</p>
+    </footer>
+</body>
+</html>
