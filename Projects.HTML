@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — Mahshid Ahmadian</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e3050;
+            --accent: #3d5a8c;
+            --light-bg: #f8f9fa;
+            --border: #e5e7eb;
+            --text-dark: #1f2937;
+            --text-muted: #6b7280;
+            --success: #10b981;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--text-dark);
+            background: white;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            border-bottom: 1px solid var(--border);
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        /* Project Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .project-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 24px rgba(30, 48, 80, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .project-header {
+            padding: 2rem 2rem 1rem;
+            border-bottom: 2px solid var(--light-bg);
+        }
+
+        .project-type {
+            display: inline-block;
+            background: var(--light-bg);
+            color: var(--accent);
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .project-body {
+            padding: 0 2rem;
+            flex-grow: 1;
+        }
+
+        .project-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin: 1rem 0;
+        }
+
+        .project-impact {
+            background: rgba(16, 185, 129, 0.08);
+            border-left: 3px solid var(--success);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-tag {
+            background: var(--light-bg);
+            color: var(--primary);
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border);
+        }
+
+        .project-footer {
+            padding: 1.5rem 2rem;
+            background: var(--light-bg);
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: var(--primary);
+        }
+
+        /* Publications Section */
+        .publications-section {
+            margin-top: 5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .publications-list {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .publication-item {
+            padding: 1.5rem;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .pub-status {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 0.3rem 0.6rem;
+            border-radius: 3px;
+            margin-bottom: 0.75rem;
+        }
+
+        .pub-published {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+
+        .pub-submitted {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+        }
+
+        .pub-title {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.05rem;
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        .pub-citation {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-style: italic;
+            margin: 0.75rem 0;
+        }
+
+        .pub-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .pub-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-footer {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Mahshid Ahmadian</a>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/talks.html">Impact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Projects & Research</h1>
+        <p class="intro-text">A selection of my research, deployed applications, and collaborative work spanning Bayesian inference, spatiotemporal modeling, machine learning, and science communication.</p>
+
+        <div class="projects-grid">
+
+            <!-- Project 1: Fish Trajectory Generator -->
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-type">Live Application</span>
+                    <div class="project-title">Fish Trajectory Generator</div>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Production-ready R Shiny web application operationalizing PhD research on spatiotemporal forecasting for marine animal movement. Enables non-technical stakeholders (fisheries managers, ecologists) to run complex Bayesian predictions without coding.
+                    </p>
+                    <div class="project-impact">
+                        <strong>Impact:</strong> Bridges academic research and real-world decision-making in fisheries management. Provides an intuitive interface for spatial trajectory imputation and forecasting.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">R Shiny</span>
+                        <span class="tech-tag">Bayesian Inference</span>
+                        <span class="tech-tag">Spatiotemporal Modeling</span>
+                        <span class="tech-tag">MCMC</span>
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <a href="https://mahshidahmadian.shinyapps.io/fish-trajectory-generator/" class="project-link" target="_blank">Live Demo →</a>
+                    <a href="https://github.com/mahshidahmadian" class="project-link" target="_blank">Code (TBD)</a>
+                </div>
+            </div>
+
+            <!-- Project 2: Doctoral Research -->
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-type">Doctoral Research</span>
+                    <div class="project-title">Bayesian Animal Movement Models Spatiotemporal Modeling</div>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Developed hierarchical Bayesian inference methods with custom hybrid Gibbs/Metropolis-Hastings MCMC samplers applied to marine animal telemetry data (salmon sharks, cobia). Dissertation title: "Bayesian Animal Movement Models."
+                    </p>
+                    <div class="project-impact">
+                        <strong>Impact:</strong> Advances statistical methods for ecologists. Enables accurate prediction and imputation of animal movement trajectories from sparse satellite and acoustic data.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">R</span>
+                        <span class="tech-tag">C++/Rcpp</span>
+                        <span class="tech-tag">Bayesian Inference</span>
+                        <span class="tech-tag">MCMC Diagnostics</span>
+                        <span class="tech-tag">HPC/Slurm</span>
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <a href="https://scholarscompass.vcu.edu/" class="project-link" target="_blank">link (TBD) →</a>
+                </div>
+            </div>
+
+            <!-- Project 4: Education Research -->
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-type">Collaborative Research</span>
+                    <div class="project-title">HHMI Education Project</div>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Contributed to HHMI-funded research on educational outcomes, faculty presence, and inclusive teaching practices. Conducted statistical analysis, data visualization, and contributed to multiple peer-reviewed publications in education research.
+                    </p>
+                    <div class="project-impact">
+                        <strong>Impact:</strong> Published work demonstrating impact of inclusive teaching on student belonging and engagement in STEM. Presented at AAC&U conference.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Statistical Analysis</span>
+                        <span class="tech-tag">R</span>
+                        <span class="tech-tag">Data Visualization</span>
+                        <span class="tech-tag">Research Design</span>
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <a href="https://doi.org/10.1080/0047231X.2025.2487437" class="project-link" target="_blank">First Journal Article →</a>
+                </div>
+            </div>
+
+            <!-- Project 5: Statistical Consulting -->
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-type">Consulting</span>
+                    <div class="project-title">Applied Statistics Across Domains</div>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Provided statistical consulting to 15+ research projects across medicine, public health, finance, and psychology. Tailored statistical methods to study design, implemented GLMs, supervised/unsupervised ML, and communicated findings to non-technical audiences.
+                    </p>
+                    <div class="project-impact">
+                        <strong>Impact:</strong> Translated complex statistical concepts for researchers across disciplines. Strengthened research rigor and reporting standards.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Statistical Methods</span>
+                        <span class="tech-tag">Data Visualization</span>
+                        <span class="tech-tag">Consulting</span>
+                        <span class="tech-tag">Technical Writing</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Publications Section -->
+        </div>
+        <div class="publications-section">
+            <h2>Publications</h2>
+
+            <div class="publications-list">
+                <div class="publication-item">
+                    <span class="pub-status pub-published">Published</span>
+                    <div class="pub-title">Saying It Aloud: Inclusive Teaching Statements Impact on Student Success and Engagement</div>
+                    <div class="pub-citation">Reid, J., Ahmadian, M., et al. (2025). Journal of College Science Teaching.</div>
+                    <a href="https://doi.org/10.1080/0047231X.2025.2487437" class="pub-link" target="_blank">Read on Taylor & Francis →</a>
+                </div>
+
+                <div class="publication-item">
+                    <span class="pub-status pub-published">Published</span>
+                    <div class="pub-title">A new perspective to fish trajectory imputation: a spatiotemporal probability model for simulating acoustically tagged fish movement</div>
+                    <div class="pub-citation">Ahmadian, M., Boone, E. L., Chiu, G. S., & Weng, K. C. (2026). Journal of Applied Statistics: Environmental Statistics and Data Science.</div>
+                    <a href="https://doi.org/10.1080/29984688.2026.2623273" class="pub-link" target="_blank">Read on Taylor & Francis →</a>
+                </div>
+
+
+                <div class="publication-item">
+                    <span class="pub-status pub-submitted">In Review</span>
+                    <div class="pub-title">A Bayesian Inferential Approach to Stochastic Modeling of Intermittent Movement Trajectories, Applied to Pacific Salmon Sharks</div>
+                    <div class="pub-citation">Ahmadian, M., Boone, E. L., Chiu, G. S., Weng, K. C. (in preparation)</div>
+                </div>
+
+                <div class="publication-item">
+                    <span class="pub-status pub-submitted">In Review</span>
+                    <div class="pub-title">Moving Beyond Pedagogy: A Measurement of the Impact Faculty's Presence Has on the Learning Environment</div>
+                    <div class="pub-citation">Reid, J., Ahmadian, M., Wheeler, L., Jennings, D., Golding, S. E., Johnson, A. A. (in review)</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Mahshid Ahmadian..</p>
+    </footer>
+</body>
+</html>
