@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact & Talks — Mahshid Ahmadian</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e3050;
+            --accent: #3d5a8c;
+            --light-bg: #f8f9fa;
+            --border: #e5e7eb;
+            --text-dark: #1f2937;
+            --text-muted: #6b7280;
+            --accent-light: #dfe9f3;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--text-dark);
+            background: white;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            border-bottom: 1px solid var(--border);
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Talk/Event Items */
+        .talk-item {
+            padding: 1.5rem;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .talk-item:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(30, 48, 80, 0.1);
+        }
+
+        .talk-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .talk-title {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.1rem;
+            flex: 1;
+        }
+
+        .talk-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .talk-venue {
+            color: var(--accent);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .talk-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .talk-type {
+            display: inline-block;
+            background: var(--accent-light);
+            color: var(--primary);
+            padding: 0.25rem 0.6rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-top: 0.75rem;
+        }
+
+        /* Impact Stats */
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Leadership Section */
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .leadership-card {
+            padding: 1.5rem;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .leadership-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .leadership-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+
+        .leadership-role {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        /* Mentoring Stories */
+        .mentoring-card {
+            padding: 2rem;
+            background: var(--accent-light);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .mentoring-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .mentoring-card p {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .talk-header {
+                flex-direction: column;
+            }
+
+            .talk-date {
+                align-self: flex-start;
+            }
+
+            .impact-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Mahshid Ahmadian</a>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/talks.html">Impact</a></li>
+        </ul>
+    </nav>
+
+        <h2>Invited Talks</h2>
+
+        <div class="talk-item">
+            <div class="talk-header">
+                <div class="talk-title">Real Stories About Using HPC in Research</div>
+                <span class="talk-date">Feb 2025</span>
+            </div>
+            <div class="talk-venue">VA-WHPC Seminar, Virginia Women in High Performance Computing</div>
+            <div class="talk-description">Shared personal experience and best practices for using high-performance computing in Bayesian statistical inference and spatiotemporal modeling research.</div>
+            <span class="talk-type">Invited Speaker</span>
+        </div>
+
+        <div class="talk-item">
+            <div class="talk-header">
+                <div class="talk-title">Bridging Academic Research and Fisheries Management</div>
+                <span class="talk-date">Oct 2024</span>
+            </div>
+            <div class="talk-venue">Virginia Sea Grant Symposium (TED-style talk)</div>
+            <div class="talk-description">Presented research on translating complex Bayesian spatiotemporal models into intuitive web tools for decision-makers in environmental policy and fisheries management.</div>
+            <span class="talk-type">Invited Speaker</span>
+        </div>
+
+        <div class="talk-item">
+            <div class="talk-header">
+                <div class="talk-title">Consulting Using Advanced Analytics</div>
+                <span class="talk-date">Sep 2022</span>
+            </div>
+            <div class="talk-venue">VCU Capstone Course</div>
+            <div class="talk-description">Guest lecture on applying advanced statistical and machine learning methods to real-world research problems across domains (medicine, public health, finance).</div>
+            <span class="talk-type">Guest Lecturer</span>
+        </div>
+
+        <h2>Contributed Presentations</h2>
+
+        <div class="talk-item">
+            <div class="talk-header">
+                <div class="talk-title">Bayesian Spatiotemporal Models for Marine Animal Movement</div>
+                <span class="talk-date">Sep 2024</span>
+            </div>
+            <div class="talk-venue">154th Annual Meeting, American Fisheries Society</div>
+            <div class="talk-description">Presented dissertation research on predictive modeling frameworks for fish trajectory data, with applications to ecosystem management.</div>
+            <span class="talk-type">Contributed Talk</span>
+        </div>
+
+        <div class="talk-item">
+            <div class="talk-header">
+                <div class="talk-title">Bayesian Inference and MCMC in Ecological Modeling</div>
+                <span class="talk-date">Jun 2024</span>
+            </div>
+            <div class="talk-venue">Symposium on Data Science and Statistics</div>
+            <div class="talk-description">Presented methodological advances in hierarchical Bayesian models and hybrid MCMC algorithms for spatiotemporal ecological data.</div>
+            <span class="talk-type">Contributed Talk</span>
+        </div>
+
+        <div class="talk-item">
+            <div class="talk-header">
+                <div class="talk-title">Dissertation Research Seminar</div>
+                <span class="talk-date">Jul 2023</span>
+            </div>
+            <div class="talk-venue">Virginia Commonwealth University</div>
+            <div class="talk-description">Presented progress on Bayesian spatiotemporal modeling framework to VCU Statistics and Data Science community.</div>
+            <span class="talk-type">Seminar</span>
+        </div>
+
+        <div class="talk-item">
+            <div class="talk-header">
+                <div class="talk-title">High-Performance Computing in Research</div>
+                <span class="talk-date">Apr 2023</span>
+            </div>
+            <div class="talk-venue">VA-WHPC Student Lightning Talks</div>
+            <div class="talk-description">Lightning talk on leveraging HPC for Bayesian inference and large-scale statistical modeling. Highlighted Rcpp integration and cluster computing strategies.</div>
+            <span class="talk-type">Lightning Talk</span>
+        </div>
+
+        <div class="talk-item">
+            <div class="talk-header">
+                <div class="talk-title">NFL Big Data Bowl Competition</div>
+                <span class="talk-date">Feb 2023</span>
+            </div>
+            <div class="talk-venue">VCU Statistical Sciences and Operations Research Data Science Team</div>
+            <div class="talk-description">Team presentation on machine learning applications in sports analytics.</div>
+            <span class="talk-type">Contributed Talk</span>
+        </div>
+
+        <div class="talk-item">
+            <div class="talk-header">
+                <div class="talk-title">Inclusive Teaching and Student Belonging</div>
+                <span class="talk-date">Feb 2023</span>
+            </div>
+            <div class="talk-venue">AAC&U 2022 Conference on Transforming STEM Higher Education</div>
+            <div class="talk-description">Presented research findings on the impact of inclusive teaching statements and faculty presence on student sense of belonging in STEM.</div>
+            <span class="talk-type">Contributed Talk</span>
+        </div>
+
+        <h2>Poster Presentations</h2>
+
+        <div class="talk-item">
+            <div class="talk-header">
+                <div class="talk-title">Bayesian Spatiotemporal Forecasting for Ecological Data</div>
+                <span class="talk-date">Jun 2025</span>
+            </div>
+            <div class="talk-venue">Southern Regional Council on Statistics 60th Research Conference</div>
+            <span class="talk-type">Poster</span>
+        </div>
+
+        <div class="talk-item">
+            <div class="talk-header">
+                <div class="talk-title">MCMC Diagnostics and Model Validation</div>
+                <span class="talk-date">Mar 2025</span>
+            </div>
+            <div class="talk-venue">GMU Stat-Connect 2025</div>
+            <span class="talk-type">Poster</span>
+        </div>
+
+        <div class="talk-item">
+            <div class="talk-header">
+                <div class="talk-title">Data-Driven Modeling of Rare and Extreme Events</div>
+                <span class="talk-date">Nov 2024</span>
+            </div>
+            <div class="talk-venue">NSF Workshop on Data-driven Modeling and Prediction of Rare and Extreme Events</div>
+            <span class="talk-type">Poster (NSF Participation Award)</span>
+        </div>
+
+        <div class="talk-item">
+            <div class="talk-header">
+                <div class="talk-title">Hybrid MCMC Algorithms for Efficient Bayesian Inference</div>
+                <span class="talk-date">Dec 2024</span>
+            </div>
+            <div class="talk-venue">SIAM Washington-Baltimore Section Fall Meeting</div>
+            <span class="talk-type">Poster</span>
+        </div>
+
+        <div class="talk-item">
+            <div class="talk-header">
+                <div class="talk-title">Spatiotemporal Prediction in Marine Ecology (Best Poster Award)</div>
+                <span class="talk-date">Oct 2023</span>
+            </div>
+            <div class="talk-venue">American Statistical Association Virginia Chapter Annual Meeting</div>
+            <span class="talk-type">Poster</span>
+        </div>
+
+        <div class="talk-item">
+            <div class="talk-header">
+                <div class="talk-title">Statistical Methods for Environmental Data</div>
+                <span class="talk-date">Oct 2022</span>
+            </div>
+            <div class="talk-venue">ENVR 2022 Workshop: Environmental and Ecological Statistical Research</div>
+            <span class="talk-type">Poster</span>
+        </div>
+
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Mahshid Ahmadian. Built with care for clarity and impact.</p>
+    </footer>
+</body>
+</html>
