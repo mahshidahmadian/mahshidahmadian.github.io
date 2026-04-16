@@ -28,7 +28,6 @@
             line-height: 1.6;
         }
 
-        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
@@ -66,7 +65,6 @@
             color: var(--accent);
         }
 
-        /* Main Content */
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -77,14 +75,6 @@
             font-size: 2.5rem;
             color: var(--primary);
             margin-bottom: 1.5rem;
-        }
-
-        .intro-text {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            max-width: 800px;
-            margin-bottom: 3rem;
-            line-height: 1.8;
         }
 
         h2 {
@@ -103,7 +93,6 @@
             margin-bottom: 1rem;
         }
 
-        /* Talk/Event Items */
         .talk-item {
             padding: 1.5rem;
             background: white;
@@ -164,7 +153,6 @@
             margin-top: 0.75rem;
         }
 
-        /* Impact Stats */
         .impact-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -191,7 +179,6 @@
             font-size: 0.95rem;
         }
 
-        /* Leadership Section */
         .leadership-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -226,7 +213,6 @@
             font-size: 0.9rem;
         }
 
-        /* Mentoring Stories */
         .mentoring-card {
             padding: 2rem;
             background: var(--accent-light);
@@ -247,7 +233,17 @@
             line-height: 1.7;
         }
 
-        /* Footer */
+        ul {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
         footer {
             padding: 2rem 5%;
             text-align: center;
@@ -281,14 +277,32 @@
 </head>
 <body>
     <nav>
-<a href="index.html" class="logo">Mahshid Ahmadian</a>
-<ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="projects.html">Projects</a></li>
-    <li><a href="talks.html">Impact</a></li>
+        <a href="index.html" class="logo">Mahshid Ahmadian</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="talks.html">Impact</a></li>
         </ul>
     </nav>
+
+    <div class="container">
+        <h1>Impact & Community</h1>
+
+        <div class="impact-stats">
+            <div class="stat-box">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Research Consulting Projects</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">25+</div>
+                <div class="stat-label">Presentations & Talks</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">5+</div>
+                <div class="stat-label">Years Teaching & Mentoring</div>
+            </div>
+        </div>
 
         <h2>Invited Talks</h2>
 
@@ -439,7 +453,6 @@
             <div class="talk-venue">ENVR 2022 Workshop: Environmental and Ecological Statistical Research</div>
             <span class="talk-type">Poster</span>
         </div>
-
 
     </div>
 
