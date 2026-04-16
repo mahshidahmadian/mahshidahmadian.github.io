@@ -27,7 +27,6 @@
             line-height: 1.6;
         }
 
-        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
@@ -65,9 +64,8 @@
             color: var(--accent);
         }
 
-        /* Main Content */
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 3rem 5%;
         }
@@ -146,12 +144,6 @@
             color: var(--accent);
             font-size: 0.95rem;
             margin-bottom: 0.75rem;
-        }
-
-        .role-description {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.7;
         }
 
         ul {
@@ -247,23 +239,6 @@
             margin-top: 0.25rem;
         }
 
-        .courses-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .course-tag {
-            background: var(--light-bg);
-            color: var(--primary);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            border: 1px solid var(--border);
-        }
-
-        /* Footer */
         footer {
             padding: 2rem 5%;
             text-align: center;
@@ -298,12 +273,12 @@
 </head>
 <body>
     <nav>
-        <a href="/" class="logo">Mahshid Ahmadian</a>
+        <a href="index.html" class="logo">Mahshid Ahmadian</a>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/projects.html">Projects</a></li>
-            <li><a href="/talks.html">Impact</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="talks.html">Impact</a></li>
         </ul>
     </nav>
 
@@ -333,7 +308,7 @@
                 <div class="edu-school"><a href="https://english.iut.ac.ir/">Isfahan University of Technology</a></div>
                 <div class="edu-year">2014</div>
                 <p style="margin-top: 0.75rem; font-size: 0.9rem; color: var(--text-muted);">Undergrad Research: Modeling continuous response variable using SAS software.</p>
-                <a href="https://thesis.iut.ac.ir/mahshid-ahmadian"style="font-size: 0.9rem; color: var(--accent); text-decoration: none; font-weight: 500;>View project</a>
+                <a href="https://thesis.iut.ac.ir/mahshid-ahmadian" style="font-size: 0.9rem; color: var(--accent); text-decoration: none; font-weight: 500;">View project →</a>
             </div>
         </div>
 
@@ -353,12 +328,10 @@
                 <span class="role-date">2026 – Present</span>
             </div>
             <div class="role-org">Virginia Department of Conservation & Recreation, Richmond, VA</div>
-            <div class="role-description">
-                <ul>
-                    <li>This position is funded and placed through the Virginia Sea Grant.</li>
-                    <li>Work involves geospatial analysis using ArcGIS Pro and applied machine learning methods.</li>
-                </ul>
-            </div>
+            <ul>
+                <li>This position is funded and placed through the Virginia Sea Grant.</li>
+                <li>Work involves geospatial analysis using ArcGIS Pro and applied machine learning methods.</li>
+            </ul>
         </div>
 
         <div class="role-item">
@@ -367,15 +340,13 @@
                 <span class="role-date">2023 – 2025</span>
             </div>
             <div class="role-org">Virginia Sea Grant / Virginia Commonwealth University</div>
-            <div class="role-description">
-                <ul>
-                    <li>Developed a Bayesian predictive model for imputing and forecasting spatiotemporal data, improving decision-making accuracy for fisheries policy.</li>
-                    <li>Built automated data workflows, enhancing reproducibility and integrity for complex, large-scale spatiotemporal datasets.</li>
-                    <li>Designed an Oracle simulation framework to evaluate model accuracy and robustness.</li>
-                    <li>Developed production-ready R Shiny web application that operationalizes PhD research models, providing a user-friendly interface for non-technical stakeholders.</li>
-                    <li>Optimized large-scale Bayesian and MCMC models using High-Performance Computing (HPC) and integrated efficient C++ code via Rcpp.</li>
-                </ul>
-            </div>
+            <ul>
+                <li>Developed a Bayesian predictive model for imputing and forecasting spatiotemporal data, improving decision-making accuracy for fisheries policy.</li>
+                <li>Built automated data workflows, enhancing reproducibility and integrity for complex, large-scale spatiotemporal datasets.</li>
+                <li>Designed an Oracle simulation framework to evaluate model accuracy and robustness.</li>
+                <li>Developed production-ready R Shiny web application that operationalizes PhD research models, providing a user-friendly interface for non-technical stakeholders.</li>
+                <li>Optimized large-scale Bayesian and MCMC models using High-Performance Computing (HPC) and integrated efficient C++ code via Rcpp.</li>
+            </ul>
         </div>
 
         <div class="role-item">
@@ -384,12 +355,10 @@
                 <span class="role-date">2022 – 2023</span>
             </div>
             <div class="role-org">Howard Hughes Medical Institute Education Project, VCU</div>
-            <div class="role-description">
-                <ul>
-                    <li>Collaborated with interdisciplinary researchers on HHMI-funded project to support educational initiatives through data analysis and visualization.</li>
-                    <li>Prepared reports and visualizations for stakeholders; contributed to multiple peer-reviewed publications.</li>
-                </ul>
-            </div>
+            <ul>
+                <li>Collaborated with interdisciplinary researchers on HHMI-funded project to support educational initiatives through data analysis and visualization.</li>
+                <li>Prepared reports and visualizations for stakeholders; contributed to multiple peer-reviewed publications.</li>
+            </ul>
         </div>
 
         <h3>Teaching & Consulting</h3>
@@ -400,12 +369,10 @@
                 <span class="role-date">May 2022 – July 2022</span>
             </div>
             <div class="role-org">Virginia Commonwealth University, Richmond, VA</div>
-            <div class="role-description">
-                <ul>
-                    <li>Taught Calculus with Analytic Geometry to undergraduate students as sole instructor of record.</li>
-                    <li>Created course materials and assessments; held regular office hours to support student success.</li>
-                </ul>
-            </div>
+            <ul>
+                <li>Taught Calculus with Analytic Geometry to undergraduate students as sole instructor of record.</li>
+                <li>Created course materials and assessments; held regular office hours to support student success.</li>
+            </ul>
         </div>
 
         <div class="role-item">
@@ -414,13 +381,11 @@
                 <span class="role-date">2021 – 2023</span>
             </div>
             <div class="role-org">Statistics & Analytics Consulting Lab, VCU</div>
-            <div class="role-description">
-                <ul>
-                    <li>Consulted on diverse research projects across medicine, public health, psychology, and finance.</li>
-                    <li>Recommended appropriate statistical methods tailored to each study's design and objectives.</li>
-                    <li>Implemented data cleaning, exploratory analysis, generalized linear models, machine learning methods, and visualizations to communicate complex results to both technical and non-technical audiences.</li>
-                </ul>
-            </div>
+            <ul>
+                <li>Consulted on diverse research projects across medicine, public health, psychology, and finance.</li>
+                <li>Recommended appropriate statistical methods tailored to each study's design and objectives.</li>
+                <li>Implemented data cleaning, exploratory analysis, generalized linear models, machine learning methods, and visualizations to communicate complex results to both technical and non-technical audiences.</li>
+            </ul>
         </div>
 
         <h2>Technical Skills</h2>
