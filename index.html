@@ -156,6 +156,81 @@
             background: var(--light-bg);
         }
 
+        /* In the News Section */
+        .news-feature {
+            padding: 0 5% 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .news-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .news-feature-card {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            background: var(--light-bg);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            padding: 1.5rem 1.75rem;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .news-feature-card:hover {
+            box-shadow: 0 8px 24px rgba(30, 48, 80, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .news-feature-card img {
+            width: 160px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .news-feature-text {
+            min-width: 0;
+        }
+
+        .news-feature-text .news-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+        }
+
+        .news-feature-text h3 {
+            font-size: 1.15rem;
+            color: var(--primary);
+            line-height: 1.35;
+            margin-bottom: 0.4rem;
+        }
+
+        .news-feature-text p {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            margin-bottom: 0.6rem;
+        }
+
+        .news-feature-text a {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .news-feature-text a:hover {
+            text-decoration: underline;
+        }
+
         /* Highlights Section */
         .highlights {
             background: var(--light-bg);
@@ -298,6 +373,16 @@
                 width: 100%;
                 text-align: center;
             }
+
+            .news-feature-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .news-feature-card img {
+                width: 100%;
+                height: 160px;
+            }
         }
     </style>
 </head>
@@ -309,6 +394,8 @@
     <li><a href="about.html">CV</a></li>
     <li><a href="projects.html">Projects</a></li>
     <li><a href="talks.html">Impact</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="news.html">News</a></li>
         </ul>
     </nav>
 
@@ -329,6 +416,18 @@
         </div>
     </section>
 
+    <section class="news-feature">
+        <p class="news-label">In the News</p>
+        <div class="news-feature-card">
+            <img src="images/news-ams.jpg" alt="Mahshid Ahmadian at the Virginia Sea Grant Symposium" onerror="this.style.display='none'">
+            <div class="news-feature-text">
+                <p class="news-meta">American Meteorological Society · June 2026</p>
+                <h3>AMS and Virginia Sea Grant Launch New Policy Fellowship</h3>
+                <p>Selected through a national competitive process to bring statistical modeling and data science expertise to weather, water, and climate decision-making at the AMS Policy Program.</p>
+                <a href="news.html">All news coverage →</a>
+            </div>
+        </div>
+    </section>
 
     <section class="skills">
         <h2 class="section-title">Technical Stack</h2>
