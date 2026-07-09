@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="News and media coverage of Mahshid Ahmadian — data scientist and statistician featured by the American Meteorological Society, Virginia Sea Grant, and more.">
+    <title>In the News — Mahshid Ahmadian</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e3050;
+            --accent: #3d5a8c;
+            --light-bg: #f8f9fa;
+            --border: #e5e7eb;
+            --text-dark: #1f2937;
+            --text-muted: #6b7280;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--text-dark);
+            background: white;
+            line-height: 1.6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            border-bottom: 1px solid var(--border);
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .page-header {
+            padding: 4rem 5% 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+        }
+
+        .news-list {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 5% 4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .news-card {
+            display: flex;
+            gap: 1.5rem;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.75rem;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .news-card:hover {
+            box-shadow: 0 8px 24px rgba(30, 48, 80, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .news-card.featured {
+            border-left: 4px solid var(--accent);
+            background: var(--light-bg);
+        }
+
+        .news-image {
+            flex-shrink: 0;
+            width: 220px;
+        }
+
+        .news-image img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .news-body {
+            min-width: 0;
+        }
+
+        .news-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+        }
+
+        .news-meta .outlet {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .news-card h2 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            line-height: 1.35;
+            margin-bottom: 0.6rem;
+        }
+
+        .news-card h2 a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .news-card h2 a:hover {
+            color: var(--accent);
+        }
+
+        .news-card p {
+            font-size: 0.97rem;
+            color: var(--text-dark);
+            margin-bottom: 0.9rem;
+        }
+
+        .news-card blockquote {
+            border-left: 3px solid var(--accent);
+            padding-left: 1rem;
+            margin: 0 0 0.9rem;
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .read-link {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .read-link:hover {
+            text-decoration: underline;
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: white;
+            background: var(--accent);
+            padding: 0.2rem 0.7rem;
+            border-radius: 999px;
+            margin-bottom: 0.75rem;
+        }
+
+        .connect {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .connect h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .connect-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .connect-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .connect-links a:hover {
+            opacity: 0.8;
+        }
+
+        footer {
+            padding: 2rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.2rem;
+            }
+
+            .news-card {
+                flex-direction: column;
+            }
+
+            .news-image {
+                width: 100%;
+            }
+
+            .news-image img {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">Mahshid Ahmadian</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">CV</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="talks.html">Impact</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="news.html">News</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <h1>In the News</h1>
+        <p>Features and coverage of my work in data science, statistics, and science communication.</p>
+    </header>
+
+    <main class="news-list">
+
+        <article class="news-card featured">
+            <div class="news-image">
+                <img src="images/news-ams.jpg" alt="Mahshid Ahmadian at the Virginia Sea Grant Symposium in Virginia Beach, 2024" onerror="this.parentElement.style.display='none'">
+            </div>
+            <div class="news-body">
+                <span class="badge">Featured</span>
+                <p class="news-meta"><span class="outlet">AMS Headlines — American Meteorological Society</span> · June 26, 2026</p>
+                <h2><a href="https://headlines.ametsoc.org/2026/06/26/ams-and-virginia-sea-grant-launch-new-policy-fellowship/" target="_blank" rel="noopener">AMS and Virginia Sea Grant Launch New Policy Fellowship</a></h2>
+                <p>Selected through a national competitive process as the inaugural VASG–AMS Fellow, bringing statistical modeling and data science expertise to the AMS Policy Program — where evidence on weather, water, climate, and coastal resilience informs national decision-making.</p>
+                <blockquote>"My training has focused on turning complex data and information into something useful. I'm excited to learn how that process works at the policy level."</blockquote>
+                <a class="read-link" href="https://headlines.ametsoc.org/2026/06/26/ams-and-virginia-sea-grant-launch-new-policy-fellowship/" target="_blank" rel="noopener">Read the feature on AMS Headlines →</a>
+            </div>
+        </article>
+
+        <article class="news-card">
+            <div class="news-body">
+                <p class="news-meta"><span class="outlet">NOAA Sea Grant</span> · January 2026</p>
+                <h2><a href="https://seagrant.noaa.gov/sea-grant-announces-2025-2026-fellowship-selections/" target="_blank" rel="noopener">Sea Grant Announces 2025–2026 Fellowship Selections</a></h2>
+                <p>Named one of 48 finalists nationwide — representing 40 universities across 26 states — for the John A. Knauss Marine Policy Fellowship, which places early-career scientists in federal legislative and executive offices to bring scientific and technical expertise to national policymaking.</p>
+                <a class="read-link" href="https://seagrant.noaa.gov/sea-grant-announces-2025-2026-fellowship-selections/" target="_blank" rel="noopener">Read the announcement at NOAA Sea Grant →</a>
+            </div>
+        </article>
+
+        <article class="news-card">
+            <div class="news-body">
+                <p class="news-meta"><span class="outlet">Virginia Women in High Performance Computing (VA-WHPC)</span> · February 2025</p>
+                <h2><a href="https://va-whpc.org/event/save-the-date-real-stories-a-using-hpc-in-research/" target="_blank" rel="noopener">Real Stories about Using HPC in Research</a></h2>
+                <p>Featured presenter at the VA-WHPC statewide seminar, sharing how I use high-performance computing to process large-scale spatial data and run computationally intensive Bayesian models — alongside speakers from William &amp; Mary and the University of Virginia.</p>
+                <a class="read-link" href="https://va-whpc.org/event/save-the-date-real-stories-a-using-hpc-in-research/" target="_blank" rel="noopener">Read the event feature at VA-WHPC →</a>&nbsp;&nbsp;
+                <a class="read-link" href="https://youtu.be/u0Dv0frMPCQ" target="_blank" rel="noopener">Watch the recording →</a>
+            </div>
+        </article>
+
+        <article class="news-card">
+            <div class="news-body">
+                <p class="news-meta"><span class="outlet">The Honor Society of Phi Kappa Phi</span> · January 2025</p>
+                <h2><a href="https://phikappaphi.meritpages.com/stories/Mahshid-Ahmadian-Elected-to-Membership-into-The-Honor-Society-of-Phi-Kappa-Phi/158007878" target="_blank" rel="noopener">Elected to Membership into The Honor Society of Phi Kappa Phi</a></h2>
+                <p>Elected to the nation's oldest and most selective all-discipline collegiate honor society, recognizing the top of the graduating class across all fields of study.</p>
+                <a class="read-link" href="https://phikappaphi.meritpages.com/stories/Mahshid-Ahmadian-Elected-to-Membership-into-The-Honor-Society-of-Phi-Kappa-Phi/158007878" target="_blank" rel="noopener">Read the announcement at Phi Kappa Phi →</a>
+            </div>
+        </article>
+
+        <article class="news-card">
+            <div class="news-body">
+                <p class="news-meta"><span class="outlet">Virginia Sea Grant</span> · September 2023</p>
+                <h2><a href="https://vaseagrant.org/2023-graduate-fellows/" target="_blank" rel="noopener">2023 Graduate Fellows Announced</a></h2>
+                <p>Profiled as one of seven Graduate Research Fellows selected across Virginia. The feature highlights my work developing a fish movement modeling tool for fisheries management using acoustic receiver data, in collaboration with marine spatial ecologist Dr. Daniel Crear.</p>
+                <a class="read-link" href="https://vaseagrant.org/2023-graduate-fellows/" target="_blank" rel="noopener">Read the announcement at Virginia Sea Grant →</a>
+            </div>
+        </article>
+
+    </main>
+
+    <section class="connect">
+        <h2>Let's Connect</h2>
+        <div class="connect-links">
+            <a href="https://linkedin.com/in/mahshidahmadian" target="_blank">LinkedIn</a>
+            <a href="https://github.com/mahshidahmadian" target="_blank">GitHub</a>
+            <a href="mailto:Mahshidhamadian8@gmail.com">Email</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Mahshid Ahmadian.</p>
+    </footer>
+</body>
+</html>
