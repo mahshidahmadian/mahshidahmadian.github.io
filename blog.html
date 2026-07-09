@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog of Mahshid Ahmadian — stories, notes, and projects in data science and statistics.">
+    <title>Blog — Mahshid Ahmadian</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --main: #006699;
+            --main-dark: #004d73;
+            --main-tint: #eaf3f8;
+            --page-bg: #f7fafc;
+            --text-dark: #1f2937;
+            --text-muted: #6b7280;
+            /* Blog palette */
+            --harvest-gold: #E1A36F;
+            --calico: #DEC484;
+            --hampton: #E2D8A5;
+            --sea-nymph: #6F9F9C;
+            --smalt-blue: #577E89;
+            --ink: #24313a;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--text-dark);
+            background: var(--page-bg);
+            line-height: 1.6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.4rem 6%;
+            background: var(--page-bg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav ul a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul a:hover,
+        nav ul a.active {
+            color: var(--main);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .drop-btn {
+            background: none;
+            border: none;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: color 0.3s;
+        }
+
+        .drop-btn i {
+            font-size: 0.65rem;
+            transition: transform 0.3s;
+        }
+
+        .dropdown:hover .drop-btn,
+        .dropdown:focus-within .drop-btn {
+            color: var(--main);
+        }
+
+        .dropdown:hover .drop-btn i,
+        .dropdown:focus-within .drop-btn i {
+            transform: rotate(180deg);
+        }
+
+        .drop-menu {
+            position: absolute;
+            top: calc(100% + 0.6rem);
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            list-style: none;
+            z-index: 200;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 12px 30px rgba(0, 102, 153, 0.16);
+            padding: 0.45rem 0;
+            min-width: 160px;
+        }
+
+        .drop-menu::before {
+            content: "";
+            position: absolute;
+            top: -0.6rem;
+            left: 0;
+            right: 0;
+            height: 0.6rem;
+        }
+
+        .dropdown:hover .drop-menu,
+        .dropdown:focus-within .drop-menu {
+            display: block;
+        }
+
+        .drop-menu a {
+            display: block;
+            padding: 0.5rem 1.2rem;
+            white-space: nowrap;
+        }
+
+        .drop-menu a:hover {
+            background: var(--main-tint);
+        }
+
+        /* Blog header */
+        .page-header {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 3rem 6% 2rem;
+        }
+
+        .page-header h1 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.75rem;
+        }
+
+        .page-header p.intro {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 40rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.75;
+        }
+
+        .follow-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--smalt-blue);
+            color: white;
+            font-size: 0.92rem;
+            font-weight: 600;
+            padding: 0.65rem 1.4rem;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .follow-btn:hover {
+            background: #46697a;
+            transform: translateY(-2px);
+        }
+
+        /* Editorial card grid */
+        .blog-grid {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 1rem 6% 4.5rem;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.75rem;
+        }
+
+        .post-card {
+            display: flex;
+            flex-direction: column;
+            min-height: 420px;
+            padding: 1.6rem 1.8rem 0;
+            transition: transform 0.3s;
+            overflow: hidden;
+        }
+
+        .post-card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Palette rotation — give each card one of these classes */
+        .card-hampton { background: var(--hampton); color: var(--ink); }
+        .card-gold { background: var(--harvest-gold); color: var(--ink); }
+        .card-calico { background: var(--calico); color: var(--ink); }
+        .card-nymph { background: var(--sea-nymph); color: #ffffff; }
+        .card-smalt { background: var(--smalt-blue); color: #ffffff; }
+
+        .card-number {
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            border-top: 2px solid currentColor;
+            padding-top: 0.6rem;
+            margin-bottom: 1.4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-number .tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            opacity: 0.85;
+        }
+
+        .post-card h2 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.55rem;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 0.8rem;
+        }
+
+        .post-card h2 a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .post-card h2 a:hover {
+            text-decoration: underline;
+        }
+
+        .post-card p.excerpt {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            opacity: 0.9;
+            margin-bottom: 1.1rem;
+        }
+
+        .post-card .date {
+            font-size: 0.8rem;
+            opacity: 0.75;
+            margin-bottom: 0.9rem;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            color: inherit;
+            font-size: 0.92rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-bottom: 1.4rem;
+        }
+
+        .read-more:hover {
+            gap: 0.75rem;
+        }
+
+        .read-more i {
+            transition: transform 0.3s;
+        }
+
+        .read-more:hover i {
+            transform: translateX(3px);
+        }
+
+        .card-img {
+            margin-top: auto;
+            margin-left: -1.8rem;
+            margin-right: -1.8rem;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 175px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .connect {
+            background: var(--main);
+            color: white;
+            padding: 3rem 6%;
+            text-align: center;
+        }
+
+        .connect h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .connect-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .connect-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .connect-links a:hover {
+            opacity: 0.8;
+        }
+
+        footer {
+            padding: 1.5rem 6%;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            background: var(--page-bg);
+        }
+
+        @media (max-width: 800px) {
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .post-card {
+                min-height: 0;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">Mahshid Ahmadian</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <button type="button" class="drop-btn" aria-haspopup="true">My Work <i class="fa-solid fa-chevron-down"></i></button>
+                <ul class="drop-menu">
+                    <li><a href="about.html">CV</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="talks.html">Impact</a></li>
+                </ul>
+            </li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="news.html">News</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <h1>My Blog</h1>
+        <p class="intro">Here I will share interesting stories, things I'm learning, and projects from my GitHub — and if you like it, follow up here!</p>
+        <a class="follow-btn" href="mailto:Mahshidhamadian8@gmail.com?subject=Follow%20your%20blog!&body=Hi%20Mahshid%2C%20I%27d%20love%20to%20get%20an%20email%20when%20you%20publish%20a%20new%20post!"><i class="fa-regular fa-bell"></i> Follow</a>
+    </header>
+
+    <main class="blog-grid">
+
+        <!-- ============================================================
+             HOW TO ADD A NEW POST:
+             1. Copy blog_posts/post-template.html to a new file, e.g.
+                blog_posts/2026-08-my-story.html
+             2. Write your post inside it (instructions are in the file)
+             3. Copy a card below, paste it ABOVE the older cards, and
+                update: the number (newest is 01, and bump the total on
+                all cards, e.g. 01/03, 02/03, 03/03), the color class
+                (rotate: card-hampton, card-nymph, card-gold, card-smalt,
+                card-calico), the tag, date, title, excerpt and link.
+             ============================================================ -->
+
+        <article class="post-card card-hampton">
+            <div class="card-number"><span>01/01</span><span class="tag">Story</span></div>
+            <h2><a href="blog_posts/2026-07-my-first-post.html">My First Post: Replace This Title</a></h2>
+            <p class="date">July 9, 2026</p>
+            <p class="excerpt">This is a placeholder excerpt — one or two sentences that make people want to click. Replace it with a short teaser of your post.</p>
+            <a class="read-more" href="blog_posts/2026-07-my-first-post.html">Read more <i class="fa-solid fa-arrow-right"></i></a>
+            <div class="card-img">
+                <img src="images/blog-first-post.jpg" alt="" onerror="this.parentElement.style.display='none'">
+            </div>
+        </article>
+
+    </main>
+
+    <section class="connect">
+        <h2>Let's Connect</h2>
+        <div class="connect-links">
+            <a href="https://linkedin.com/in/mahshidahmadian" target="_blank">LinkedIn</a>
+            <a href="https://github.com/mahshidahmadian" target="_blank">GitHub</a>
+            <a href="mailto:Mahshidhamadian8@gmail.com">Email</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Mahshid Ahmadian.</p>
+    </footer>
+</body>
+</html>
