@@ -4,317 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About — Mahshid Ahmadian</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #1e3050;
-            --accent: #3d5a8c;
-            --light-bg: #f8f9fa;
-            --border: #e5e7eb;
-            --text-dark: #1f2937;
-            --text-muted: #6b7280;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            color: var(--text-dark);
-            background: white;
-            line-height: 1.6;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 5%;
-            border-bottom: 1px solid var(--border);
-            background: white;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav .logo {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 5%;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .about-intro {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: var(--light-bg);
-            border-radius: 8px;
-            border-left: 4px solid var(--accent);
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-top: 3rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--accent);
-        }
-
-        h3 {
-            font-size: 1.2rem;
-            color: var(--primary);
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        a:hover {
-            color: var(--primary);
-            text-decoration: underline;
-        }
-
-        .role-item {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-        }
-
-        .role-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 0.5rem;
-        }
-
-        .role-title {
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 1.05rem;
-        }
-
-        .role-date {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .role-org {
-            color: var(--accent);
-            font-size: 0.95rem;
-            margin-bottom: 0.75rem;
-        }
-
-        ul {
-            margin: 1rem 0 1rem 2rem;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.8;
-        }
-
-        li {
-            margin-bottom: 0.5rem;
-        }
-
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .edu-card {
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-            border-radius: 6px;
-            background: white;
-        }
-
-        .edu-degree {
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 1.05rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .edu-school {
-            color: var(--accent);
-            font-size: 0.95rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .edu-year {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-box {
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-            border-radius: 6px;
-            background: white;
-        }
-
-        .skill-box h4 {
-            color: var(--primary);
-            margin-bottom: 0.75rem;
-            font-size: 1rem;
-        }
-
-        .skill-box p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        .awards-list {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-        }
-
-        .award-item {
-            padding: 1rem;
-            background: var(--light-bg);
-            border-radius: 6px;
-            border-left: 3px solid var(--accent);
-        }
-
-        .award-title {
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 0.95rem;
-        }
-
-        .award-meta {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-top: 0.25rem;
-        }
-
-        /* Connect Section */
-        .connect {
-            background: var(--primary);
-            color: white;
-            padding: 3rem 5%;
-            text-align: center;
-        }
-
-        .connect h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-
-        .connect-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .connect-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
-
-        .connect-links a:hover {
-            opacity: 0.8;
-        }
-
-        footer {
-            padding: 2rem 5%;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                gap: 1.5rem;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
-
-            .role-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .role-date {
-                margin-top: 0.5rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <a href="index.html" class="logo">Mahshid Ahmadian</a>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">CV</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="talks.html">Impact</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-        </ul>
+    <nav class="masthead">
+        <div class="masthead-inner">
+            <a href="index.html" class="logo">Mahshid Ahmadian</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <button type="button" class="drop-btn" aria-haspopup="true">My Work <i class="fa-solid fa-chevron-down"></i></button>
+                    <ul class="drop-menu">
+                        <li><a href="about.html">CV</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="talks.html">Impact</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="news.html">News</a></li>
+            </ul>
+        </div>
     </nav>
 
+    <div class="page-wrap">
+        <aside class="author-sidebar">
+            <img src="images/profile.jpg" alt="Mahshid Ahmadian" class="author-photo">
+            <div class="author-name">Mahshid Ahmadian</div>
+            <p class="author-role">Data Scientist &amp; Statistician</p>
+            <ul class="author-links">
+                <li><a href="mailto:Mahshidhamadian8@gmail.com"><i class="fa-solid fa-envelope"></i>Email</a></li>
+                <li><a href="https://linkedin.com/in/mahshidahmadian" target="_blank"><i class="fa-brands fa-linkedin"></i>LinkedIn</a></li>
+                <li><a href="https://github.com/mahshidahmadian" target="_blank"><i class="fa-brands fa-github"></i>GitHub</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
     <div class="container">
         <h1>About Me</h1>
         <div class="about-intro">
@@ -345,7 +70,7 @@
             </div>
         </div>
 
-        <div style="margin-top: 2rem; padding: 1.5rem; background: white; border: 1px solid var(--border); border-radius: 6px; border-left: 4px solid var(--accent);">
+        <div style="margin-top: 2rem; padding: 1.5rem; background: white; border: 1px solid var(--border-strong); border-radius: 6px;">
             <p style="font-size: 0.95rem; color: var(--text-dark); line-height: 1.7;">
                 <strong>Affiliate Researcher:</strong> <a href="https://www.wm.edu/">The College of William & Mary</a>, <a href="https://www.vims.edu/">Virginia Institute of Marine Science</a>. Affiliate student and researcher of <a href="https://www.vims.edu/research/units/labgroups/estdats/">The Environmental Statistics and Transdisciplinary Data Science Lab</a>.
             </p>
@@ -494,6 +219,9 @@
         </ul>
 
     </div>
+        </main>
+    </div>
+
     <section class="connect">
         <h2>Let's Connect</h2>
         <div class="connect-links">
