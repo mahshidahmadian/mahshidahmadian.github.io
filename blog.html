@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Blog of Mahshid Ahmadian — stories, notes, and projects in data science and statistics.">
     <title>Blog — Mahshid Ahmadian</title>
+    <link rel="alternate" type="application/rss+xml" title="Mahshid Ahmadian's Blog" href="feed.xml">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
@@ -168,23 +169,74 @@
             line-height: 1.75;
         }
 
-        .follow-btn {
+        .follow-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .subscribe-form {
+            display: flex;
+            align-items: stretch;
+            background: white;
+            border: 2px solid var(--smalt-blue);
+            border-radius: 999px;
+            overflow: hidden;
+            max-width: 380px;
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .subscribe-form input[type="email"] {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 0.65rem 1.2rem;
+            font-size: 0.92rem;
+            font-family: inherit;
+            color: var(--text-dark);
+            min-width: 0;
+            background: transparent;
+        }
+
+        .subscribe-form button {
+            border: none;
+            background: var(--smalt-blue);
+            color: white;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0 1.4rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            transition: background 0.3s;
+        }
+
+        .subscribe-form button:hover {
+            background: #46697a;
+        }
+
+        .rss-btn {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: var(--smalt-blue);
-            color: white;
-            font-size: 0.92rem;
+            color: var(--smalt-blue);
+            border: 2px solid var(--smalt-blue);
+            background: transparent;
+            font-size: 0.9rem;
             font-weight: 600;
-            padding: 0.65rem 1.4rem;
+            padding: 0.6rem 1.3rem;
             border-radius: 999px;
             text-decoration: none;
-            transition: background 0.3s, transform 0.3s;
+            transition: background 0.3s, color 0.3s;
         }
 
-        .follow-btn:hover {
-            background: #46697a;
-            transform: translateY(-2px);
+        .rss-btn:hover {
+            background: var(--smalt-blue);
+            color: white;
         }
 
         /* Editorial card grid */
@@ -381,7 +433,27 @@
     <header class="page-header">
         <h1>My Blog</h1>
         <p class="intro">Here I will share interesting stories, things I'm learning, and projects from my GitHub — and if you like it, follow up here!</p>
-        <a class="follow-btn" href="mailto:Mahshidhamadian8@gmail.com?subject=Follow%20your%20blog!&body=Hi%20Mahshid%2C%20I%27d%20love%20to%20get%20an%20email%20when%20you%20publish%20a%20new%20post!"><i class="fa-regular fa-bell"></i> Follow</a>
+        <!-- ============================================================
+             FOLLOW OPTIONS
+             1. Email subscriptions are powered by Buttondown (free up to
+                100 subscribers). Create an account at buttondown.com,
+                then replace YOUR_USERNAME below (in BOTH places) with
+                your Buttondown username. Until then the form politely
+                shows an alert instead of submitting.
+             2. The RSS button links to feed.xml — when you add a post,
+                also add an <item> to feed.xml (instructions inside it).
+             ============================================================ -->
+        <div class="follow-row">
+            <form class="subscribe-form"
+                  action="https://buttondown.com/api/emails/embed-subscribe/YOUR_USERNAME"
+                  method="post"
+                  target="popupwindow"
+                  onsubmit="if(this.action.includes('YOUR_USERNAME')){alert('Subscriptions are coming soon!');return false;} window.open('https://buttondown.com/YOUR_USERNAME','popupwindow');">
+                <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
+                <button type="submit"><i class="fa-regular fa-bell"></i> Follow</button>
+            </form>
+            <a class="rss-btn" href="feed.xml" target="_blank"><i class="fa-solid fa-rss"></i> RSS</a>
+        </div>
     </header>
 
     <main class="blog-grid">
