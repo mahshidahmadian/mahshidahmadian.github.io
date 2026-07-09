@@ -4,337 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects — Mahshid Ahmadian</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #1e3050;
-            --accent: #3d5a8c;
-            --light-bg: #f8f9fa;
-            --border: #e5e7eb;
-            --text-dark: #1f2937;
-            --text-muted: #6b7280;
-            --success: #10b981;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            color: var(--text-dark);
-            background: white;
-            line-height: 1.6;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 5%;
-            border-bottom: 1px solid var(--border);
-            background: white;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav .logo {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 3rem 5%;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .intro-text {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            max-width: 800px;
-            margin-bottom: 3rem;
-            line-height: 1.8;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .project-card {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 8px 24px rgba(30, 48, 80, 0.12);
-            transform: translateY(-4px);
-        }
-
-        .project-header {
-            padding: 2rem 2rem 1rem;
-            border-bottom: 2px solid var(--light-bg);
-        }
-
-        .project-type {
-            display: inline-block;
-            background: var(--light-bg);
-            color: var(--accent);
-            padding: 0.35rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            text-transform: uppercase;
-        }
-
-        .project-title {
-            font-size: 1.4rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .project-body {
-            padding: 0 2rem;
-            flex-grow: 1;
-        }
-
-        .project-description {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin: 1rem 0;
-        }
-
-        .project-impact {
-            background: rgba(16, 185, 129, 0.08);
-            border-left: 3px solid var(--success);
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            color: var(--text-dark);
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 1rem 0;
-        }
-
-        .tech-tag {
-            background: var(--light-bg);
-            color: var(--primary);
-            padding: 0.35rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            border: 1px solid var(--border);
-        }
-
-        .project-footer {
-            padding: 1.5rem 2rem;
-            background: var(--light-bg);
-            border-top: 1px solid var(--border);
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            text-decoration: none;
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-
-        .project-link:hover {
-            color: var(--primary);
-        }
-
-        .publications-section {
-            margin-top: 5rem;
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 2rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid var(--accent);
-        }
-
-        .publications-list {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .publication-item {
-            padding: 1.5rem;
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            border-left: 4px solid var(--accent);
-        }
-
-        .pub-status {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            padding: 0.3rem 0.6rem;
-            border-radius: 3px;
-            margin-bottom: 0.75rem;
-        }
-
-        .pub-published {
-            background: rgba(16, 185, 129, 0.1);
-            color: var(--success);
-        }
-
-        .pub-submitted {
-            background: rgba(59, 130, 246, 0.1);
-            color: #3b82f6;
-        }
-
-        .pub-title {
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 1.05rem;
-            margin: 0.5rem 0;
-            line-height: 1.6;
-        }
-
-        .pub-citation {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            font-style: italic;
-            margin: 0.75rem 0;
-        }
-
-        .pub-link {
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .pub-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Connect Section */
-        .connect {
-            background: var(--primary);
-            color: white;
-            padding: 3rem 5%;
-            text-align: center;
-        }
-
-        .connect h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-
-        .connect-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .connect-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
-
-        .connect-links a:hover {
-            opacity: 0.8;
-        }
-
-        footer {
-            padding: 2rem 5%;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                gap: 1.5rem;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project-footer {
-                flex-direction: column;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <a href="index.html" class="logo">Mahshid Ahmadian</a>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">CV</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="talks.html">Impact</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-        </ul>
+    <nav class="masthead">
+        <div class="masthead-inner">
+            <a href="index.html" class="logo">Mahshid Ahmadian</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <button type="button" class="drop-btn" aria-haspopup="true">My Work <i class="fa-solid fa-chevron-down"></i></button>
+                    <ul class="drop-menu">
+                        <li><a href="about.html">CV</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="talks.html">Impact</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="news.html">News</a></li>
+            </ul>
+        </div>
     </nav>
 
+    <div class="page-wrap">
+        <aside class="author-sidebar">
+            <img src="images/profile.jpg" alt="Mahshid Ahmadian" class="author-photo">
+            <div class="author-name">Mahshid Ahmadian</div>
+            <p class="author-role">Data Scientist &amp; Statistician</p>
+            <ul class="author-links">
+                <li><a href="mailto:Mahshidhamadian8@gmail.com"><i class="fa-solid fa-envelope"></i>Email</a></li>
+                <li><a href="https://linkedin.com/in/mahshidahmadian" target="_blank"><i class="fa-brands fa-linkedin"></i>LinkedIn</a></li>
+                <li><a href="https://github.com/mahshidahmadian" target="_blank"><i class="fa-brands fa-github"></i>GitHub</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
     <div class="container">
         <h1>Projects & Research</h1>
         <p class="intro-text">A selection of my research, deployed applications, and collaborative work spanning Bayesian inference, spatiotemporal modeling, machine learning, and science communication.</p>
@@ -470,6 +175,9 @@
         </div>
 
     </div>
+        </main>
+    </div>
+
     <section class="connect">
         <h2>Let's Connect</h2>
         <div class="connect-links">
