@@ -103,6 +103,90 @@ nav.masthead ul a:hover {
     text-decoration: underline;
 }
 
+/* Dropdown */
+.dropdown {
+    position: relative;
+}
+
+.drop-btn {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.drop-btn i {
+    font-size: 0.65rem;
+    transition: transform 0.3s;
+}
+
+.dropdown:hover .drop-btn,
+.dropdown:focus-within .drop-btn {
+    color: var(--accent);
+}
+
+.dropdown:hover .drop-btn i,
+.dropdown:focus-within .drop-btn i {
+    transform: rotate(180deg);
+}
+
+.drop-menu {
+    position: absolute;
+    top: calc(100% + 0.6rem);
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    list-style: none;
+    z-index: 200;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid var(--border-strong);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    padding: 0.4rem 0;
+    min-width: 150px;
+    margin: 0;
+}
+
+.drop-menu::before {
+    content: "";
+    position: absolute;
+    top: -0.6rem;
+    left: 0;
+    right: 0;
+    height: 0.6rem;
+}
+
+.dropdown:hover .drop-menu,
+.dropdown:focus-within .drop-menu {
+    display: block;
+}
+
+nav.masthead .drop-menu li {
+    margin: 0;
+}
+
+.drop-menu a {
+    display: block;
+    padding: 0.45rem 1.1rem;
+    white-space: nowrap;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.drop-menu a:hover {
+    background: var(--light-bg);
+    color: var(--accent);
+    text-decoration: none;
+}
+
 /* --------------------------------------------------------------------------
    Page layout: sidebar + content
    -------------------------------------------------------------------------- */
