@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ① CHANGE the title (shows in the browser tab and Google) -->
+    <title>Your Post Title — Mahshid Ahmadian</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --main: #006699;
+            --main-tint: #eaf3f8;
+            --page-bg: #f7fafc;
+            --paper: #ffffff;
+            --ink: #1c2530;
+            --ink-soft: #4a5560;
+            --ink-faint: #8a939c;
+            --rule: #d8dce0;
+            --accent: #577E89;        /* smalt blue */
+            --accent-warm: #E1A36F;   /* harvest gold */
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            color: var(--ink);
+            background: var(--paper);
+            line-height: 1.6;
+        }
+
+        /* Navigation (kept sans-serif, consistent with the rest of the site) */
+        nav {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.4rem 6%;
+            background: var(--paper);
+            border-bottom: 1px solid var(--rule);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--ink);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav ul a {
+            text-decoration: none;
+            color: var(--ink);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul a:hover,
+        nav ul a.active {
+            color: var(--accent);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .drop-btn {
+            background: none;
+            border: none;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--ink);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: color 0.3s;
+        }
+
+        .drop-btn i {
+            font-size: 0.65rem;
+            transition: transform 0.3s;
+        }
+
+        .dropdown:hover .drop-btn,
+        .dropdown:focus-within .drop-btn {
+            color: var(--accent);
+        }
+
+        .dropdown:hover .drop-btn i,
+        .dropdown:focus-within .drop-btn i {
+            transform: rotate(180deg);
+        }
+
+        .drop-menu {
+            position: absolute;
+            top: calc(100% + 0.6rem);
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            list-style: none;
+            z-index: 200;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 12px 30px rgba(28, 37, 48, 0.16);
+            padding: 0.45rem 0;
+            min-width: 160px;
+        }
+
+        .drop-menu::before {
+            content: "";
+            position: absolute;
+            top: -0.6rem;
+            left: 0;
+            right: 0;
+            height: 0.6rem;
+        }
+
+        .dropdown:hover .drop-menu,
+        .dropdown:focus-within .drop-menu {
+            display: block;
+        }
+
+        .drop-menu a {
+            display: block;
+            padding: 0.5rem 1.2rem;
+            white-space: nowrap;
+        }
+
+        .drop-menu a:hover {
+            background: var(--page-bg);
+        }
+
+        /* ---- Newspaper article ---- */
+        article {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 4rem;
+        }
+
+        .kicker {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            border-top: 3px solid var(--accent);
+            display: inline-block;
+            padding-top: 0.5rem;
+            margin-bottom: 1.1rem;
+        }
+
+        article h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.9rem;
+        }
+
+        .deck {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--ink-soft);
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .byline {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.82rem;
+            color: var(--ink-faint);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            border-top: 1px solid var(--rule);
+            border-bottom: 1px solid var(--rule);
+            padding: 0.7rem 0;
+            margin-bottom: 1.75rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .byline strong {
+            color: var(--ink);
+        }
+
+        .post-hero {
+            width: 100%;
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+
+        .img-caption {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.78rem;
+            color: var(--ink-faint);
+            border-bottom: 1px solid var(--rule);
+            padding-bottom: 0.7rem;
+            margin-bottom: 1.75rem;
+        }
+
+        article p {
+            font-size: 1.06rem;
+            line-height: 1.85;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Newspaper drop cap on the first paragraph after the byline/hero */
+        p.lead-graf::first-letter {
+            font-size: 3.4em;
+            font-weight: 700;
+            float: left;
+            line-height: 0.85;
+            padding-right: 0.55rem;
+            padding-top: 0.25rem;
+            color: var(--accent);
+        }
+
+        article a {
+            color: var(--accent);
+            text-decoration: underline;
+            text-decoration-color: rgba(87, 126, 137, 0.4);
+            text-underline-offset: 2px;
+        }
+
+        article a:hover {
+            text-decoration-color: var(--accent);
+        }
+
+        article h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 2.25rem 0 0.75rem;
+        }
+
+        article h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin: 1.75rem 0 0.6rem;
+        }
+
+        article ul,
+        article ol {
+            margin: 0 0 1.25rem 1.6rem;
+            font-size: 1.02rem;
+            line-height: 1.8;
+        }
+
+        /* Newspaper pull quote */
+        .pull-quote {
+            font-size: 1.45rem;
+            font-style: italic;
+            font-weight: 700;
+            line-height: 1.4;
+            text-align: center;
+            color: var(--ink);
+            border-top: 3px solid var(--ink);
+            border-bottom: 1px solid var(--rule);
+            padding: 1.4rem 1rem;
+            margin: 2rem 0;
+        }
+
+        .pull-quote::before {
+            content: "\201C";
+            color: var(--accent-warm);
+            font-size: 1.6em;
+            line-height: 0;
+            vertical-align: -0.35em;
+            margin-right: 0.15rem;
+        }
+
+        article img.post-image {
+            width: 100%;
+            display: block;
+            margin: 1.5rem 0 0.4rem;
+        }
+
+        article code {
+            font-family: 'SF Mono', Menlo, Consolas, monospace;
+            font-size: 0.85em;
+            background: var(--page-bg);
+            border: 1px solid var(--rule);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        article pre {
+            background: #1c2530;
+            color: #e8edf2;
+            padding: 1.2rem 1.4rem;
+            overflow-x: auto;
+            margin: 1.4rem 0 1.6rem;
+            font-size: 0.86rem;
+            line-height: 1.65;
+            border-left: 4px solid var(--accent-warm);
+        }
+
+        article pre code {
+            background: none;
+            border: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        .github-box {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border: 1px solid var(--rule);
+            border-left: 4px solid var(--accent);
+            padding: 1.1rem 1.4rem;
+            margin: 1.75rem 0;
+            font-size: 0.95rem;
+        }
+
+        .github-box i {
+            font-size: 1.7rem;
+            color: var(--ink);
+        }
+
+        .end-mark::after {
+            content: " \25A0";
+            color: var(--accent-warm);
+            font-size: 0.8em;
+        }
+
+        .back-link {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            margin-top: 2.25rem;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.92rem;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .connect {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--main);
+            color: white;
+            padding: 3rem 6%;
+            text-align: center;
+        }
+
+        .connect h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+            color: white;
+        }
+
+        .connect-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .connect-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .connect-links a:hover {
+            opacity: 0.8;
+        }
+
+        footer {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            padding: 1.5rem 6%;
+            text-align: center;
+            color: var(--ink-faint);
+            font-size: 0.85rem;
+            background: var(--page-bg);
+        }
+
+        @media (max-width: 800px) {
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            article h1 {
+                font-size: 1.9rem;
+            }
+
+            .pull-quote {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation: note all links start with ../ because this file lives in blog_posts/ -->
+    <nav>
+        <a href="../index.html" class="logo">Mahshid Ahmadian</a>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li class="dropdown">
+                <button type="button" class="drop-btn" aria-haspopup="true">My Work <i class="fa-solid fa-chevron-down"></i></button>
+                <ul class="drop-menu">
+                    <li><a href="../about.html">CV</a></li>
+                    <li><a href="../projects.html">Projects</a></li>
+                    <li><a href="../talks.html">Impact</a></li>
+                </ul>
+            </li>
+            <li><a href="../blog.html" class="active">Blog</a></li>
+            <li><a href="../news.html">Media</a></li>
+        </ul>
+    </nav>
+
+    <article>
+        <!-- ② CHANGE the kicker: the small label above the headline.
+             Use your card tag: STORY / LEARNING / PROJECT / NEWS -->
+        <p class="kicker">Story</p>
+
+        <!-- ③ CHANGE the headline -->
+        <h1>Your Post Title Goes Here</h1>
+
+        <!-- ④ CHANGE the deck: one italic sentence that sums up the piece,
+             like the subheadline in a newspaper. Delete if not needed. -->
+        <p class="deck">A one-sentence summary of the piece that pulls the reader in, newspaper-style.</p>
+
+        <!-- ⑤ CHANGE the date -->
+        <div class="byline">
+            <span>By <strong>Mahshid Ahmadian</strong></span>
+            <span>Month DD, YYYY</span>
+        </div>
+
+        <!-- ⑥ OPTIONAL hero image + caption: put the file in the site's
+             images/ folder. Delete these two elements if no image. -->
+        <img class="post-hero" src="../images/your-image.jpg" alt="Describe the image" onerror="this.style.display='none'">
+        <p class="img-caption">A caption describing the photo, with credit if needed.</p>
+
+        <!-- ⑦ WRITE your post. Keep class="lead-graf" on the FIRST paragraph
+             only — it creates the newspaper drop cap. -->
+        <p class="lead-graf">Your opening paragraph. The first letter will render as a large drop cap, just like a print feature story. Hook the reader in two or three sentences.</p>
+
+        <p>More text. You can <strong>bold</strong> things, <em>italicize</em> them, and <a href="https://example.com" target="_blank">link to anything</a>.</p>
+
+        <!-- Section heading -->
+        <h2>A Section Heading</h2>
+        <p>Text under the section.</p>
+
+        <!-- Bullet list -->
+        <ul>
+            <li>First point</li>
+            <li>Second point</li>
+        </ul>
+
+        <!-- Newspaper pull quote: a line you want to jump off the page -->
+        <p class="pull-quote">A quote or key takeaway you want to stand out.</p>
+
+        <!-- Image inside the post, with a caption -->
+        <img class="post-image" src="../images/another-image.jpg" alt="Describe the image" onerror="this.style.display='none'">
+        <p class="img-caption">A short caption under the image.</p>
+
+        <!-- Inline code and code blocks (great for R / Python snippets) -->
+        <p>Inline code looks like <code>lm(y ~ x, data = df)</code>. Bigger chunks go in a block:</p>
+        <pre><code># R example
+library(tidyverse)
+df |>
+  group_by(species) |>
+  summarise(mean_length = mean(length))</code></pre>
+
+        <!-- GitHub project box: use this when writing about one of your repos -->
+        <div class="github-box">
+            <i class="fa-brands fa-github"></i>
+            <p style="margin:0;">This project is on GitHub: <a href="https://github.com/mahshidahmadian/your-repo" target="_blank">mahshidahmadian/your-repo</a></p>
+        </div>
+
+        <!-- Keep class="end-mark" on your LAST paragraph — it adds the
+             little square that newspapers use to mark the end of a story. -->
+        <p class="end-mark">Closing paragraph.</p>
+
+        <a class="back-link" href="../blog.html"><i class="fa-solid fa-arrow-left"></i> Back to all posts</a>
+    </article>
+
+    <section class="connect">
+        <h2>Let's Connect</h2>
+        <div class="connect-links">
+            <a href="https://linkedin.com/in/mahshidahmadian" target="_blank">LinkedIn</a>
+            <a href="https://github.com/mahshidahmadian" target="_blank">GitHub</a>
+            <a href="mailto:Mahshidhamadian8@gmail.com">Email</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Mahshid Ahmadian.</p>
+    </footer>
+</body>
+</html>
