@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How smoke from Canada's record-breaking 2023 wildfire season crossed borders and became a public health event affecting millions.">
+    <title>The 2023 Canadian Wildfires — Mahshid Ahmadian</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --main: #006699;
+            --main-tint: #eaf3f8;
+            --page-bg: #f7fafc;
+            --paper: #ffffff;
+            --ink: #1c2530;
+            --ink-soft: #4a5560;
+            --ink-faint: #8a939c;
+            --rule: #d8dce0;
+            --accent: #577E89;
+            --accent-warm: #E1A36F;
+        }
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            color: var(--ink);
+            background: var(--paper);
+            line-height: 1.6;
+        }
+        nav {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.4rem 6%;
+            background: var(--paper);
+            border-bottom: 1px solid var(--rule);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav .logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--ink);
+            text-decoration: none;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        nav ul a {
+            text-decoration: none;
+            color: var(--ink);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav ul a:hover,
+        nav ul a.active {
+            color: var(--accent);
+        }
+        .dropdown {
+            position: relative;
+        }
+        .drop-btn {
+            background: none;
+            border: none;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--ink);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: color 0.3s;
+        }
+        .drop-btn i {
+            font-size: 0.65rem;
+            transition: transform 0.3s;
+        }
+        .dropdown:hover .drop-btn,
+        .dropdown:focus-within .drop-btn {
+            color: var(--accent);
+        }
+        .dropdown:hover .drop-btn i,
+        .dropdown:focus-within .drop-btn i {
+            transform: rotate(180deg);
+        }
+        .drop-menu {
+            position: absolute;
+            top: calc(100% + 0.6rem);
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            list-style: none;
+            z-index: 200;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 12px 30px rgba(28, 37, 48, 0.16);
+            padding: 0.45rem 0;
+            min-width: 160px;
+        }
+        .drop-menu::before {
+            content: "";
+            position: absolute;
+            top: -0.6rem;
+            left: 0;
+            right: 0;
+            height: 0.6rem;
+        }
+        .dropdown:hover .drop-menu,
+        .dropdown:focus-within .drop-menu {
+            display: block;
+        }
+        .drop-menu a {
+            display: block;
+            padding: 0.5rem 1.2rem;
+            white-space: nowrap;
+        }
+        .drop-menu a:hover {
+            background: var(--page-bg);
+        }
+        article {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 3rem 6% 4rem;
+        }
+        .kicker {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            border-top: 3px solid var(--accent);
+            display: inline-block;
+            padding-top: 0.5rem;
+            margin-bottom: 1.1rem;
+        }
+        article h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.9rem;
+        }
+        .deck {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--ink-soft);
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+        .byline {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.82rem;
+            color: var(--ink-faint);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            border-top: 1px solid var(--rule);
+            border-bottom: 1px solid var(--rule);
+            padding: 0.7rem 0;
+            margin-bottom: 1.75rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .byline strong {
+            color: var(--ink);
+        }
+        .post-hero {
+            width: 100%;
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+        .img-caption {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.78rem;
+            color: var(--ink-faint);
+            border-bottom: 1px solid var(--rule);
+            padding-bottom: 0.7rem;
+            margin-bottom: 1.75rem;
+        }
+        article p {
+            font-size: 1.06rem;
+            line-height: 1.85;
+            margin-bottom: 1.25rem;
+        }
+        p.lead-graf::first-letter {
+            font-size: 3.4em;
+            font-weight: 700;
+            float: left;
+            line-height: 0.85;
+            padding-right: 0.55rem;
+            padding-top: 0.25rem;
+            color: var(--accent);
+        }
+        article a {
+            color: var(--accent);
+            text-decoration: underline;
+            text-decoration-color: rgba(87, 126, 137, 0.4);
+            text-underline-offset: 2px;
+        }
+        article a:hover {
+            text-decoration-color: var(--accent);
+        }
+        article h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 2.25rem 0 0.75rem;
+        }
+        article h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin: 1.75rem 0 0.6rem;
+        }
+        article ul,
+        article ol {
+            margin: 0 0 1.25rem 1.6rem;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+        .pull-quote {
+            font-size: 1.45rem;
+            font-style: italic;
+            font-weight: 700;
+            line-height: 1.4;
+            text-align: center;
+            color: var(--ink);
+            border-top: 3px solid var(--ink);
+            border-bottom: 1px solid var(--rule);
+            padding: 1.4rem 1rem;
+            margin: 2rem 0;
+        }
+        .pull-quote::before {
+            content: "\201C";
+            color: var(--accent-warm);
+            font-size: 1.6em;
+            line-height: 0;
+            vertical-align: -0.35em;
+            margin-right: 0.15rem;
+        }
+        .refs {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            border-top: 3px solid var(--ink);
+            margin-top: 2.5rem;
+            padding-top: 1.25rem;
+        }
+        .refs h2 {
+            font-size: 1.15rem;
+            margin: 0 0 1rem;
+        }
+        .refs h3 {
+            font-family: inherit;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--ink-faint);
+            margin: 1.25rem 0 0.5rem;
+        }
+        .refs ul {
+            list-style: none;
+            margin: 0;
+        }
+        .refs li {
+            font-size: 0.86rem;
+            line-height: 1.6;
+            color: var(--ink-soft);
+            padding: 0.4rem 0;
+            border-bottom: 1px solid var(--rule);
+        }
+        .end-mark::after {
+            content: " \25A0";
+            color: var(--accent-warm);
+            font-size: 0.8em;
+        }
+        .back-link {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            margin-top: 2.25rem;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.92rem;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .connect {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--main);
+            color: white;
+            padding: 3rem 6%;
+            text-align: center;
+        }
+        .connect h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+            color: white;
+        }
+        .connect-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .connect-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        .connect-links a:hover {
+            opacity: 0.8;
+        }
+        footer {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            padding: 1.5rem 6%;
+            text-align: center;
+            color: var(--ink-faint);
+            font-size: 0.85rem;
+            background: var(--page-bg);
+        }
+        @media (max-width: 800px) {
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+            article h1 {
+                font-size: 1.9rem;
+            }
+            .pull-quote {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="../index.html" class="logo">Mahshid Ahmadian</a>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li class="dropdown">
+                <button type="button" class="drop-btn" aria-haspopup="true">My Work <i class="fa-solid fa-chevron-down"></i></button>
+                <ul class="drop-menu">
+                    <li><a href="../about.html">CV</a></li>
+                    <li><a href="../projects.html">Projects</a></li>
+                    <li><a href="../talks.html">Impact</a></li>
+                </ul>
+            </li>
+            <li><a href="../blog.html" class="active">Blog</a></li>
+            <li><a href="../news.html">Media</a></li>
+        </ul>
+    </nav>
+    <article>
+        <p class="kicker">Public Health</p>
+        <h1>The 2023 Canadian Wildfires</h1>
+        <p class="deck">The story of how smoke from a record-breaking fire season crossed borders, turned skies orange across multiple states, and became a public health event for people who did not see the flame.</p>
+        <div class="byline">
+            <span>By <strong>Mahshid Ahmadian</strong></span>
+            <span>July 15, 2026</span>
+        </div>
+        <p class="lead-graf">These days, I am working on the health effects of wildfires, and this has led me back to the 2023 Canadian wildfire season. My own memory of that summer is small: I remember the air quality alerts lighting up my phone's weather app. The smoke was everywhere in the news, telling people to stay indoors.</p>
+        <p>Now I am returning to that summer with a data scientist's eyes. I have been digging into air quality data from those weeks, just to investigate my own questions about how the smoke traveled and what it did to the air we were breathing.</p>
+        <p>Unfortunately, as I write this, it is happening again. Canada is in the middle of another severe fire season, with <a href="https://www.cnn.com/2026/07/14/weather/canada-wildfire-smoke-northeast-midwest-air-quality" target="_blank">more than 800 fires currently active</a>, and as of this week, the third week of July 2026, smoke is once again moving across the border. <a href="https://www.nyc.gov/site/em/about/press-releases/20260715_pr-NYCEM-Smoke-From-Canadian-Wildfires-May-Affect-NYC-Air-Quality.page" target="_blank">New York City warned residents</a> just this week that Canadian wildfire smoke may affect the city's air. Three years later, the story is happening again.</p>
+        <p>Below is a brief account of what I found in the published research, along with my own thoughts, which are by no means complete.</p>
+        <h2>How it started</h2>
+        <p>The Canadian wildfires began in March 2023, with intensity increasing significantly in June. All 13 provinces and territories of Canada were impacted by the fires. The 2023 wildfire season recorded the highest area burned in Canada's history, surpassing the fire seasons of 1989, 1995, and 2014. By the time the season concluded in late autumn, approximately 15 million hectares had been consumed by the flames.</p>
+        <p>The wildfires were fueled by warmer, drier conditions, with temperatures reported to be higher than the norm across the country. Lightning strikes initiated the fires, and this combination of heat and dryness led to sustained burning that lasted for months.</p>
+        <h2>Smoke that crossed borders</h2>
+        <p>In 2023, winds carried smoke across the United States, into Europe, and even as far as Greenland and Norway. In June 2023, residents along the East Coast of the United States, spanning from New York and Philadelphia down to Washington, were issued air quality alerts. The source of the problem was hundreds of miles away, originating from the forests in Canada. At a point, approximately 90 to 130 million individuals across sixteen or more states were advised to reduce their outdoor activities. On June 7, New York City recorded the worst air quality of any major city worldwide. Schools canceled classes, airlines delayed flights for poor visibility, and baseball games were postponed.</p>
+        <h2>A public health event</h2>
+        <p>Wildfire smoke is a complex mixture of gases and particles that can penetrate deep into the lungs and enter the bloodstream. Smoke-related health effects of the Canadian wildfires became clear quickly in hospital records. A national study by the <a href="https://www.cdc.gov/mmwr/volumes/72/wr/mm7234a5.htm" target="_blank">Centers for Disease Control and Prevention</a> found that on smoky days, emergency room visits for asthma in the United States were about 17 percent higher than usual. <a href="https://ysph.yale.edu/news-article/canadian-wildfire-smoke-associated-with-increased-asthma-cases-in-nyc/" target="_blank">Research from Yale</a> showed that asthma-related emergency visits in New York City rose to about 261 per day during the smoke wave in June, compared to around 182 on normal days.</p>
+        <p>More recent findings are even more concerning and extend beyond emergency rooms. A <a href="https://www.nature.com/articles/s41586-025-09482-1" target="_blank">2025 study in the journal Nature</a> estimated that smoke from the 2023 Canadian fires was linked to about 82,000 premature deaths worldwide over the year, including thousands of acute deaths in the United States and Canada during the worst smoke periods. These deaths were not from the fires themselves, but from the long-term strain that fine-particle pollution places on hearts and lungs, especially in people who have pre-existing conditions.</p>
+        <h2>Warnings and response</h2>
+        <p>In 2023, smoke was forecast, and on June 7, forecasters predicted that the smoke over New York would move south into the Mid-Atlantic region, bringing some of the worst air quality to Delaware, Maryland, northern Virginia, and Washington by the following morning. This prediction proved accurate.</p>
+        <p>Because the smoke was forecast, warning systems were effective, and smoke alerts went out in advance, even if the message did not reach everyone. Federal and state forecasters were able to anticipate the smoke. The Environmental Protection Agency (EPA) and state agencies used this advance notice to issue air quality alerts before the worst days, and overall, the system functioned reasonably well, although a <a href="https://doi.org/10.1175/WAF-D-25-0211.1" target="_blank">later evaluation</a> found the forecasts tended to understate just how severe the smoke would get.</p>
+        <p class="end-mark">The public had access to useful tools for checking conditions in real time. The EPA's <a href="https://www.airnow.gov/?city=New%20York&amp;state=NY&amp;country=USA" target="_blank">AirNow website</a> and its <a href="https://www.epa.gov/research-states/epa-research-partner-support-story-airnow-fire-and-smoke-map" target="_blank">Fire and Smoke Map</a> gathered readings from monitoring stations across the country, and the free AirNow app was widely downloaded during the crisis. However, for much of the eastern United States, wildfire smoke was an unfamiliar hazard, and neither the public nor local institutions had the experience that western states had developed over the years.</p>
+        <p><i>Views expressed here are my own.</i></p>
+        <section class="refs">
+            <h2>References and sources</h2>
+            <ul>
+                <li>Jain, P., Barber, Q.E., Taylor, S.W. et al. "Drivers and Impacts of the Record-Breaking 2023 Wildfire Season in Canada." <em>Nature Communications</em> 15, 6764 (2024). <a href="https://www.nature.com/articles/s41467-024-51154-7" target="_blank">nature.com</a></li>
+                <li>Chen, H., Zhang, W., Sheng, L. et al. "Canadian record-breaking wildfires in 2023 and their impact on US air quality." <em>Atmospheric Environment</em> (2024). <a href="https://www.sciencedirect.com/science/article/abs/pii/S1352231024006162" target="_blank">sciencedirect.com</a></li>
+                <li>Coye, P., Willitsford, A.H., Winstead, N. "Operational Performance of High-Resolution Rapid Refresh (HRRR) Smoke Forecasting during the Canadian Wildfires of Summer 2023." <em>Weather and Forecasting</em> 41(6), American Meteorological Society (2026). <a href="https://doi.org/10.1175/WAF-D-25-0211.1" target="_blank">doi.org</a></li>
+                <li>McArdle, C.E. et al. "Asthma-Associated Emergency Department Visits During the Canadian Wildfire Smoke Episodes, United States, April to August 2023." <em>MMWR</em> 72(34):926–932, CDC (2023). <a href="https://www.cdc.gov/mmwr/volumes/72/wr/mm7234a5.htm" target="_blank">cdc.gov</a></li>
+                <li>Meek, H.C. et al. "Notes from the Field: Asthma-Associated Emergency Department Visits During a Wildfire Smoke Event, New York, June 2023." <em>MMWR</em> 72(34):933–935, CDC (2023). <a href="https://www.cdc.gov/mmwr/volumes/72/wr/mm7234a6.htm" target="_blank">cdc.gov</a></li>
+                <li>Zhang, Q. et al. "Long-range PM2.5 pollution and health impacts from the 2023 Canadian wildfires." <em>Nature</em> (2025). <a href="https://www.nature.com/articles/s41586-025-09482-1" target="_blank">doi.org/10.1038/s41586-025-09482-1</a></li>
+            </ul>
+            <ul>
+                <li>U.S. Environmental Protection Agency. "AirNow Fire and Smoke Map: A Research Partner Support Story." <a href="https://www.epa.gov/research-states/epa-research-partner-support-story-airnow-fire-and-smoke-map" target="_blank">epa.gov</a></li>
+                <li>AirNow.gov. Real-time Air Quality Index (New York). U.S. EPA. <a href="https://www.airnow.gov/?city=New%20York&amp;state=NY&amp;country=USA" target="_blank">airnow.gov</a></li>
+                <li>NASA Earth Observatory. "Tracking Canada's Extreme 2023 Fire Season." <a href="https://earthobservatory.nasa.gov/images/151985/tracking-canadas-extreme-2023-fire-season" target="_blank">earthobservatory.nasa.gov</a></li>
+                <li>World Resources Institute / Global Forest Watch. "Canada's Record-Breaking 2023 Wildfires Released Nearly 4 Times More Carbon than Global Aviation." <a href="https://www.wri.org/insights/canada-wildfire-emissions" target="_blank">wri.org</a></li>
+            </ul>
+            <ul>
+                <li>Chen, K. et al. "Canadian wildfire smoke associated with increased asthma cases in NYC" (published in JAMA). Yale School of Public Health (2024). <a href="https://ysph.yale.edu/news-article/canadian-wildfire-smoke-associated-with-increased-asthma-cases-in-nyc/" target="_blank">ysph.yale.edu</a></li>
+                <li>Rutgers University. "Study Reveals Canadian Wildfires Are Affecting US Air Quality and Raising Health Concerns." <a href="https://www.rutgers.edu/news/study-reveals-canadian-wildfires-are-affecting-us-air-quality-and-raising-health-concerns" target="_blank">rutgers.edu</a></li>
+                <li>Asthma and Allergy Foundation of America. "Public Health Emergency: Wildfires in Canada Impact Air Quality in Eastern U.S." <a href="https://community.aafa.org/blog/public-health-emergency-wildfires-in-canada-impact-air-quality-in-eastern-u-s" target="_blank">community.aafa.org</a></li>
+            </ul>
+            <ul>
+                <li>Wikipedia. "2023 Canadian wildfires." <a href="https://en.wikipedia.org/wiki/2023_Canadian_wildfires" target="_blank">wikipedia.org</a></li>
+            </ul>
+        </section>
+        <a class="back-link" href="../blog.html"><i class="fa-solid fa-arrow-left"></i> Back to all posts</a>
+    </article>
+    <section class="connect">
+        <h2>Let's Connect</h2>
+        <div class="connect-links">
+            <a href="https://linkedin.com/in/mahshidahmadian" target="_blank">LinkedIn</a>
+            <a href="https://github.com/mahshidahmadian" target="_blank">GitHub</a>
+            <a href="mailto:Mahshidhamadian8@gmail.com">Email</a>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2026 Mahshid Ahmadian.</p>
+    </footer>
+</body>
+</html>
