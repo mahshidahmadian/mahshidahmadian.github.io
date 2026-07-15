@@ -384,6 +384,40 @@
             text-decoration: underline;
         }
 
+        /* Skills & qualifications list */
+        .qual-title {
+            display: inline-block;
+            border-bottom: 2px solid var(--main);
+            padding-bottom: 0.35rem;
+        }
+
+        .qual-list {
+            list-style: disc;
+            margin-left: 1.4rem;
+            max-width: 54rem;
+        }
+
+        .qual-list li {
+            font-size: 0.97rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 0.85rem;
+        }
+
+        .qual-list li::marker {
+            color: var(--main);
+        }
+
+        .qual-list strong {
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .qual-list .sep {
+            color: var(--main);
+            margin: 0 0.3rem;
+        }
+
         /* Skills */
         .skill-grid {
             display: grid;
@@ -558,14 +592,14 @@
 
     <section class="section" id="news">
         <div class="section-inner">
-            <p class="news-label">In the Media</p>
+            <p class="news-label">In the News</p>
             <div class="news-feature-card">
                 <img src="images/news-ams.jpeg" alt="Mahshid Ahmadian at the Virginia Sea Grant Symposium" onerror="this.style.display='none'">
                 <div class="news-feature-text">
                     <p class="news-meta">American Meteorological Society · June 2026</p>
                     <h3>AMS and Virginia Sea Grant Launch New Policy Fellowship</h3>
                     <p>Selected through a national competitive process to bring statistical modeling and data science expertise to weather, water, and climate decision-making at the AMS Policy Program.</p>
-                    <a href="news.html">All media coverage →</a>
+                    <a href="news.html">All news coverage →</a>
                 </div>
             </div>
         </div>
@@ -573,25 +607,16 @@
 
     <section class="section">
         <div class="section-inner">
-            <h2 class="section-title">Technical Stack</h2>
-            <div class="skill-grid">
-                <div class="skill-category">
-                    <h4>Programming</h4>
-                    <p><strong>R</strong> (Rcpp, Shiny, tidyverse) • <strong>Python</strong> (NumPy, Pandas, scikit-learn) • <strong>C++</strong> • <strong>SQL</strong> • <strong>Git</strong> • <strong>High-Performance Computing</strong> (Slurm)</p>
-                </div>
-                <div class="skill-category">
-                    <h4>Statistical Methods</h4>
-                    <p><strong>Bayesian Inference</strong> • <strong>MCMC Algorithms</strong> • <strong>Spatiotemporal Modeling</strong> • <strong>Time Series Forecasting</strong> • <strong>Mixed-Effects Models</strong> • <strong>Missing Data Imputation</strong></p>
-                </div>
-                <div class="skill-category">
-                    <h4>Data Engineering</h4>
-                    <p><strong>ETL Pipelines</strong> • <strong>Geospatial Data</strong> (ArcGIS Pro, GDAL) • <strong>API Integration</strong> • <strong>Data Quality Control</strong> • <strong>Reproducible Workflows</strong></p>
-                </div>
-                <div class="skill-category">
-                    <h4>Soft Skills</h4>
-                    <p><strong>Scientific Writing</strong> • <strong>Presenting to Non-Experts</strong> • <strong>Mentorship</strong> • <strong>Team Collaboration</strong> • <strong>Accessibility in Quantitative Work</strong></p>
-                </div>
-            </div>
+            <h2 class="section-title qual-title">Summary of Related Skills</h2>
+            <ul class="qual-list">
+                <li><strong>Research Methods</strong> <span class="sep">|</span> Study design, mixed-effects modeling, missing data imputation, reproducible and open-science workflows</li>
+                <li><strong>Programming</strong> <span class="sep">|</span> R (Rcpp, Shiny, tidyverse), Python (NumPy, Pandas, scikit-learn), C++, SQL, SAS, SPSS, Git, Jupyter Notebooks</li>
+                <li><strong>Statistical &amp; ML Methods</strong> <span class="sep">|</span> Bayesian inference, MCMC algorithms, spatiotemporal modeling, time series forecasting, GLMs, supervised/unsupervised machine learning</li>
+                <li><strong>AI &amp; LLMs</strong> <span class="sep">|</span> Prompt engineering, currently exploring agentic workflows for data analysis and research automation</li>
+                <li><strong>Data Engineering</strong> <span class="sep">|</span> ETL pipelines, geospatial data (ArcGIS Pro), API integration, REDCap, High-Performance Computing (Slurm)</li>
+                <li><strong>Data Analysis</strong> <span class="sep">|</span> Statistical analysis (frequentist and Bayesian), data visualization, Power BI</li>
+                <li><strong>Communication</strong> <span class="sep">|</span> Scientific writing, presenting to non-experts, mentorship, team collaboration</li>
+            </ul>
         </div>
     </section>
 
